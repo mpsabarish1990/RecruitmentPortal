@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="74c14d0f-f873-4e72-b4b5-2517cea1ecee" solutionId="74c14d0f-f873-4e72-b4b5-2517cea1ecee" resetWebServer="false" sharePointProductVersion="15.0" name="BrandingTemplates" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="37c1eb86-4df3-43a2-a0d7-1ceb39beefef" />
+    <featureReference itemId="2e7b7294-7421-4f65-8428-53e7cf811f69" />
+    <featureReference itemId="318bc830-35ef-4b97-b638-6f9bc0c34fd4" />
+  </features>
+  <projectItems>
+    <projectItemReference itemId="4122175b-413c-4369-9a0d-e5c926ec92f0" />
+  </projectItems>
+</package>

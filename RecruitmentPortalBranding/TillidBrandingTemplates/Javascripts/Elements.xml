@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="Javascripts"  Url="_catalogs/masterpage/TillidSoft/JavaScripts">
+    <File Path="Javascripts\bootstrap-datepicker.min.js" Url="Javascripts/bootstrap-datepicker.min.js" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="Javascripts\bootstrap-datetimepicker-2.3.10.js" Url="Javascripts/bootstrap-datetimepicker-2.3.10.js" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="Javascripts\bootstrap.min.js" Url="Javascripts/bootstrap.min.js" Type="GhostableInLibrary" ReplaceContent="TRUE"/>
+    <File Path="Javascripts\common.js" Url="Javascripts/common.js" Type="GhostableInLibrary" ReplaceContent="TRUE"/>
+    <File Path="Javascripts\jquery-1.12.4.js" Url="Javascripts/jquery-1.12.4.js" Type="GhostableInLibrary" ReplaceContent="TRUE"/>
+    <File Path="Javascripts\jquery-ui.js" Url="Javascripts/jquery-ui.js" Type="GhostableInLibrary" ReplaceContent="TRUE"/>
+    <File Path="Javascripts\main.js" Url="Javascripts/main.js" Type="GhostableInLibrary" ReplaceContent="TRUE"/>
+    <File Path="Javascripts\moment.min.js" Url="Javascripts/moment.min.js" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+  </Module>
+</Elements>

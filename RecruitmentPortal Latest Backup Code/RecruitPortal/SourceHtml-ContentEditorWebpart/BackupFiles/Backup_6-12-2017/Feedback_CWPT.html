@@ -1,0 +1,817 @@
+<script type="text/javascript" src="../_layouts/15/autofill.js"></script>
+<script type="text/javascript" src="../_layouts/15/1033/strings.js"></script>
+<script type="text/javascript" src="../_layouts/15/clientforms.js">  </script>
+<script type="text/javascript" src="../_layouts/15/clientpeoplepicker.js"></script>
+<script type="text/javascript" src="../_layouts/15/clienttemplates.js">  </script>
+<script src="/SiteAssets/RecruitmentPortal/js/common.js"></script>  
+<h2 class="title_hr">HR</h2>
+<h3 class="subhead_feedback">Feedback</h3>
+<div class="form_cover toggleclass">
+	<!--1st Row-->	
+	<div class="row">
+		<div class="col-md-7 nopad">
+			<!--<div class="col-md-4">
+				<div class="form-group">
+					<label>Feedback Id *</label>								
+					<input type="text" id="txtfeedbackid" class="form-control">
+				</div>
+			</div>-->
+			<div class="col-md-4">
+				<div class="form-group">
+					<label>Appointment Id *</label>								
+					<!-- <input type="text" id="txtappointmentid" class="form-control"> -->
+					<select class="form-control" id="drpappointmentid"></select>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<label>Aptitude Score *</label>	
+				<div class="form-group">							
+					<!-- <input type="text" id="txtapptitudescore" class="form-control"> -->
+					<select class="form-control" id="drpapptitudescore"></select>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-5 nopad">
+			<div class="col-md-6">
+				<label>Reviewer User Id *</label>	
+				<div class="form-group">							
+					<!-- <input type="text" id="txtrevieweruserid" class="form-control"> -->
+					 <div id="reviewer"></div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<label>Reviewer Comments *</label>	
+				<div class="form-group">							
+					<input type="text" id="txtreviewercomment" class="form-control">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-7 nopad">
+			<div class="col-md-4">
+				<label>Reviewer Rating *</label>	
+				<div class="form-group">							
+					<!-- <input type="text" id="txtreviewerrating" class="form-control"> -->
+					<select class="form-control" id="drpreviewerrating"></select>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<label>Selected *</label>	
+				<div class="form-group">							
+					<label class="radio-inline radiobg"><input type="radio" class="rodselected" id="rodselectedyes" value="Yes" name="optradio1">Yes</label>
+					<label class="radio-inline radiobg"><input type="radio" class="rodselected" id="rodselectedno" value="No" name="optradio1">No</label>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<label>Appointment Type *</label>	
+					<div class="form-group">
+						<select class="form-control" id="drpappointmenttype"></select>
+					</div>
+			</div>
+		</div>
+	</div>
+
+	<!--Submit Area-->
+	<p class="submit">
+		<a class="btn btn-primary" id="btnclear">Clear</a>&nbsp;
+		<a class="btn btn-primary toggleclick" id="btnsave">Save</a>
+		<a class="btn btn-primary toggleclick" id="btncancel">Cancel</a>
+	</p>
+</div>
+<!--5th Row-->
+<div class="table-responsive mtop-0">
+	<table class="skiltab table table-bordered paginated">
+		<thead>
+			<tr>
+				<th>Feedback ID</th>
+				<th>Appointment ID</th>
+				<th>Apptitude Score</th>
+				<th>Reviewer User ID</th>
+				<th>Reviewer Comments</th>
+				<th>Reviewer Rating</th>
+				<th>Selected</th>
+				<th class="text-center">Edit</th>
+				<th class="text-center">Delete</th>
+				<th style="display:none"></th>
+			</tr>
+		</thead>
+		<tbody id="feedbacktbody">
+			<!-- <tr>
+				<td>123456</td>
+				<td>326598</td>
+				<td>4</td>
+				<td>201589</td>
+				<td>accumsan et iusto odio</td>
+				<td>.Net, Asp .Net</td>
+				<td>Yes</td>
+				<td align="center"><span class="recicon editicon toggleclick"><input type="checkbox" name="editrec" class="editrec"></span></td>
+				<td align="center"><span class="recicon deleteicon"><input type="checkbox" name="dleterec" class="dleterec"></span></td>
+			</tr> -->
+		</tbody>
+	</table>		
+</div>	
+
+ <p class="submit text-right pright-5"><input type="button" id="bntAddRow" class="btn btn-primary addrow toggleclick" value="+ Add Feedback"></p>
+
+<!-- <div class="pagination">
+	<ul>
+		<li><a href="javascript:void(0);" class="first"></a></li>
+		<li><a href="javascript:void(0);" class="previous"></a></li>
+		<li><a href="javascript:void(0);">1</a></li>
+		<li><a href="javascript:void(0);">2</a></li>
+		<li><a href="javascript:void(0);">3</a></li>
+		<li><a href="javascript:void(0);">4</a></li>
+		<li><a href="javascript:void(0);">5</a></li>
+		<li><a href="javascript:void(0);" class="next"></a></li>
+		<li><a href="javascript:void(0);" class="last"></a></li>
+	</ul>
+	<span class="totpages">Showing 157 items in 11 pages</span>
+</div> -->
+
+<script>
+var listDisplayName = "Feedback"
+var listInternalNameItem = "SP.Data.FeedbackListItem";
+var DeleteItemId = "";
+var EditItemId = "";
+var Reviewer_user_info_people = null;
+var configuration_value = "";
+
+var FeedbackId = "";
+var ReviewerId = null;
+var AppointmentId ="";
+var AptitudeScore = "";
+var ReviewerComments = "";
+var ReviewerRating = "";
+var Selected = "";
+var AppointmentType = "";
+
+
+jQuery(document).ready(function () {
+  configuration_value = GetConfigurationitem("Pagination Count","Feedback");
+	initializePeoplePicker('reviewer');
+	GetFeedbackLists();
+	LoadAllDropdown(); 
+	AppointmentIdDropdown();  
+	
+    $("#btnsave").click(function()
+    {
+         
+         if(validateForm())
+          {
+             GetFeedbackEntry(); 
+  	         if(EditItemId != "")
+  	         {
+  	           	EditFeedbackEntry();
+  	         }
+  	         else
+  			     { 
+  	        	  BindFeedbackEntry();
+  	     	   }
+         }
+         else
+         {
+            alert("Please Enter all the required fields");
+         }
+         GetFeedbackLists();
+        //$( ".toggleclick" ).click();
+    });
+
+    $("#btnclear").click(function(){
+         Cleartextentry();
+     });
+
+
+    $("#bntAddRow").click(function(){
+         if(EditItemId != "")
+         {
+            Cleartextentry();
+            $("#btnsave").html("Save");
+            EditItemId = "";
+        }
+        else
+        {
+            Cleartextentry();
+            $("#btnsave").html("Save");
+        }
+    });
+
+});
+
+
+function Cleartextentry()
+{
+	//$("#txtfeedbackid").val('');
+	$("#drpappointmentid").val('Select');
+    $("#drpapptitudescore").val('Select');
+	$("#txtreviewercomment").val('');
+	$("#drpreviewerrating").val('Select');
+	$("#drpappointmenttype").val('Select');	
+	$("#reviewer .ms-entity-resolved").html('');
+$("#reviewer .sp-peoplepicker-delImage").html('');
+   // getUserInfo('reviewer'); 
+}
+
+//Get Feedback form entry started
+function GetFeedbackEntry()
+{
+	//FeedbackId = $("#txtfeedbackid").val();
+	AppointmentId = $("#drpappointmentid option:selected").val();
+    AptitudeScore = $("#drpapptitudescore option:selected").val();
+	ReviewerComments = $("#txtreviewercomment").val();
+	ReviewerRating = $("#drpreviewerrating option:selected").val();
+	AppointmentType = $("#drpappointmenttype option:selected").val();
+	$('.rodselected').each(function () {
+        if ($(this).is(':checked')) {
+            if ($(this).attr('value') == "Yes") {
+                Selected = "Yes";
+            }
+            else {
+                Selected = "No";
+            }
+
+        }
+    });
+    getUserInfo('reviewer'); 
+}
+
+//Get Feedback form entry ended
+
+//Post Method started from Feedback form
+function BindFeedbackEntry()
+{
+	var requestUri = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getByTitle('" + listDisplayName + "')/items";
+      var Header_Body = {
+                "Accept": "application/json;odata=verbose",
+                "content-type": "application/json; odata=verbose",
+                "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+                //"X-HTTP-Method": "MERGE",
+                //"If-Match": "*"
+            }
+       $.ajax(
+               {
+                   url: requestUri,
+                   async: false,
+                   type: "POST",
+                   data: JSON.stringify({
+                       '__metadata': { 'type': listInternalNameItem },
+                       //'Feedback_x0020_ID' : FeedbackId,
+                       'Appointment_x0020_IDId' : AppointmentId,
+                       'Aptitude_x0020_Score' : AptitudeScore,
+                       'Reviewer_x0020_Comments' : ReviewerComments,
+                       'Reviewer_x0020_Rating' : ReviewerRating,
+                       'Selected' : Selected,
+                       'Appointment_x0020_Type' : AppointmentType,
+                       'ReviewerId' : ReviewerId,
+                   }),
+                   headers: Header_Body,
+                   success: function (data) {                       
+                         //alert(data.d.Id); 
+                         alert("Item added successfully"); 
+                   },
+                   error: function (err) {
+                       alert("Feedback List Item Error Message: " + JSON.stringify(err));
+                       console.log("Feedback List Item Error Message: " + JSON.stringify(err));
+                   }
+               });
+}
+
+//Post Method ended from Feedback form
+
+
+
+
+
+//Get Feedback Item from the list Started
+function GetFeedbackLists()
+{
+  $("#divpagination").remove();
+    var feedbackhtml = "";
+     var requestUri = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getByTitle('" + listDisplayName + "')/items?$select=ID,Appointment_x0020_Type,Aptitude_x0020_Score,Reviewer_x0020_Rating,Selected,Reviewer_x0020_Comments,Feedback_x0020_ID,Appointment_x0020_ID/Id,Appointment_x0020_ID/Appointment_x0020_ID,Reviewer/Id,Reviewer/Title&$expand=Reviewer,Appointment_x0020_ID";
+       $.ajax(
+               {
+                   url: requestUri,
+                   async: false,
+                   type: "GET",
+                   headers: { "Accept": "application/json; odata=verbose" },
+                   success: function (data) {
+                   if (data.d.results) {
+                    console.log(data.d.results);
+                       if (data.d.results.length > 0) {
+                           for (var i = 0; i < data.d.results.length; i++) {  
+							var aptitubescore = data.d.results[i].Aptitude_x0020_Score != null ? data.d.results[i].Aptitude_x0020_Score : "";
+							var reviewercomment = data.d.results[i].Reviewer_x0020_Comments !=null ? data.d.results[i].Reviewer_x0020_Comments : "";
+							var reviewerrating = data.d.results[i].Reviewer_x0020_Rating != null ? data.d.results[i].Reviewer_x0020_Rating : "";
+                            feedbackhtml += '<tr>';
+                            feedbackhtml += '<td>'+data.d.results[i].Feedback_x0020_ID+'</td>';
+                            feedbackhtml += '<td>'+data.d.results[i].Appointment_x0020_ID.Appointment_x0020_ID+'</td>';
+                            feedbackhtml += '<td>'+aptitubescore+'</td>';
+                            feedbackhtml += '<td>'+data.d.results[i].Reviewer.Title+'</td>';
+                            feedbackhtml += '<td>'+reviewercomment+'</td>';
+                            feedbackhtml += '<td>'+reviewerrating+'</td>';
+                            feedbackhtml += '<td>'+data.d.results[i].Selected+'</td>';
+            feedbackhtml += '<td align="center"><span class="recicon editicon toggleclick"><input type="checkbox" name="editrec" class="editrec"/></span></td>';
+            feedbackhtml += '<td align="center"><span class="recicon deleteicon"><input type="checkbox" name="dleterec" class="dleterec" /></span></td>';
+                            feedbackhtml += '<td style="display:none">'+data.d.results[i].ID+'</td>';
+                            feedbackhtml += '</tr>';            
+                        }
+                        $("#feedbacktbody").html(feedbackhtml);
+                        $(".dleterec").click(function(){
+                             alert('Are you sure want to delete this record?');
+                             DeleteItemId = $(this).closest("tr").find("td:last").text();
+                             DeleteFeedbackItem();
+
+                        });
+                        $(".editrec").click(function(){
+                            EditItemId = $(this).closest("tr").find("td:last").text();
+                            
+                            EditFeedbackItem();   
+                             Bind_Functions();                    
+              							$("#btnsave").click(function()
+                            {
+                                 GetFeedbackEntry(); 
+                                 if(validateForm())
+                                  {
+                                   if(EditItemId != "")
+                                   {
+                                    EditFeedbackEntry();
+                                   }
+                                   else
+                               {
+                                     BindFeedbackEntry();
+                                 }
+                                 }
+                                 GetFeedbackLists();
+                                //$( ".toggleclick" ).click();
+                            });
+
+                            $("#btnclear").click(function(){
+                                 Cleartextentry();
+                             });
+
+
+                            $("#bntAddRow").click(function(){
+                                 if(EditItemId != "")
+                                 {
+                                    Cleartextentry();
+                                    $("#btnsave").html("Save");
+                                    EditItemId = "";
+                                }
+                                else
+                                {
+                                    Cleartextentry();
+                                    $("#btnsave").html("Save");
+                                }
+                            });
+                        });
+                         //Pagination code started
+                             $('table.paginated').each(function() {
+                                var currentPage = 0;
+                                var numPerPage ="";
+                                if(configuration_value != "")
+                                {
+                                     numPerPage = configuration_value;
+                                }
+                                else
+                                {
+                                     numPerPage = 10;
+                                }
+                                var $table = $(this);
+                                $table.bind('repaginate', function() {
+                                    $table.find('tbody tr').hide().slice(currentPage * numPerPage, (currentPage + 1) * numPerPage).show();
+                                });
+                                $table.trigger('repaginate');
+                                var numRows = $table.find('tbody tr').length;
+                                var numPages = Math.ceil(numRows / numPerPage);
+                                var $pager = $('<div class="pagination" id="divpagination"></div>');
+                                var $previous = $('<span class="previous"><<</spnan>');
+                                var $next = $('<span class="next">>></spnan>');
+                                if(numRows > numPerPage)
+                                {
+                                      for (var page = 0; page < numPages; page++) {
+                                          $('<span class="page-number"></span>').text(page + 1).bind('click', {
+                                              newPage: page
+                                          }, function(event) {
+                                              currentPage = event.data['newPage'];
+                                              $table.trigger('repaginate');
+                                              $(this).addClass('active').siblings().removeClass('active');
+                                          }).appendTo($pager).addClass('clickable');
+                                      }
+                                      $pager.insertAfter($table).find('span.page-number:first').addClass('active');
+                                      $previous.insertBefore('span.page-number:first');
+                                      $next.insertAfter('span.page-number:last');
+                                }
+                                $next.click(function (e) {
+                                    $previous.addClass('clickable');
+                                    $pager.find('.active').next('.page-number.clickable').click();
+                                });
+                                $previous.click(function (e) {
+                                    $next.addClass('clickable');
+                                    $pager.find('.active').prev('.page-number.clickable').click();
+                                });
+                                $table.on('repaginate', function () {
+                                    $next.addClass('clickable');
+                                    $previous.addClass('clickable');
+                                    
+                                    setTimeout(function () {
+                                        var $active = $pager.find('.page-number.active');
+                                        if ($active.next('.page-number.clickable').length === 0) {
+                                            $next.removeClass('clickable');
+                                        } else if ($active.prev('.page-number.clickable').length === 0) {
+                                            $previous.removeClass('clickable');
+                                        }
+                                        $('.table-responsive').hide();
+                                        $('.table-responsive').show(1000);
+                                    });
+                                });
+                                $table.trigger('repaginate');
+                            });
+                            //Pagination code ended
+                    }
+                }
+                },
+                error: function (err) {
+                    alert("List Item Error Message: " + JSON.stringify(err));
+                    console.log("List Item Error Message: " + JSON.stringify(err));
+                }
+            });
+}
+//Get Candidated Item from the list ended
+
+
+//Eidt Feedback form Started
+function EditFeedbackEntry()
+{
+	var requestUri = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getByTitle('" + listDisplayName + "')/items(" + EditItemId + ")";
+      var Header_Body = {
+                "Accept": "application/json;odata=verbose",
+                "content-type": "application/json; odata=verbose",
+                "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+                "X-HTTP-Method": "MERGE",
+                "If-Match": "*"
+            }
+       $.ajax(
+               {
+                   url: requestUri,
+                   async: false,
+                   type: "POST",
+                   data: JSON.stringify({
+                       '__metadata': { 'type': listInternalNameItem },
+                       //'Feedback_x0020_ID' : FeedbackId,
+                       'Appointment_x0020_IDId' : AppointmentId,
+                       'Aptitude_x0020_Score' : AptitudeScore,
+                       'Reviewer_x0020_Comments' : ReviewerComments,
+                       'Reviewer_x0020_Rating' : ReviewerRating,
+                       'Selected' : Selected,
+                       'Appointment_x0020_Type' : AppointmentType,
+                       'ReviewerId' : ReviewerId,
+                   }),
+                   headers: Header_Body,
+                   success: function (data) {                       
+                      alert("Item updated successfully"); 
+                   },
+                   error: function (err) {
+                       alert("Feedback List Item Error Message: " + JSON.stringify(err));
+                       console.log("Feedback List Item Error Message: " + JSON.stringify(err));
+                   }
+               });
+}
+
+function EditFeedbackItem()
+{
+	   $("#btnsave").html("Update");
+    $("#reviewer .ms-entity-resolved").html('');
+    $("#reviewer .sp-peoplepicker-delImage").html('');
+    var requestUri = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/GetByTitle('" + listDisplayName + "')/items(" + EditItemId + ")?$select=ID,Appointment_x0020_Type,Aptitude_x0020_Score,Reviewer_x0020_Rating,Selected,Reviewer_x0020_Comments,Feedback_x0020_ID,Appointment_x0020_ID/Id,Appointment_x0020_ID/Appointment_x0020_ID,Reviewer/Id,Reviewer/Title&$expand=Reviewer,Appointment_x0020_ID";
+    $.ajax(
+               {
+                   url: requestUri,
+                   async: false,
+                   type: "GET",
+                   headers: { "Accept": "application/json; odata=verbose" },
+                   success: function (data) {
+                   if (data.d) {
+                    console.log(data.d);
+
+					//$("#txtfeedbackid").val(data.d.Feedback_x0020_ID);
+					$("#drpappointmentid").val(data.d.Appointment_x0020_ID.Id);
+					$("#drpapptitudescore").val(data.d.Aptitude_x0020_Score);
+					$("#txtreviewercomment").val($(data.d.Reviewer_x0020_Comments).text());
+					$("#drpreviewerrating").val(data.d.Reviewer_x0020_Rating);
+					$("#drpappointmenttype").val(data.d.Appointment_x0020_Type);
+					if(data.d.Selected == "Yes")
+                    {
+                        $(".rodselected:eq(0)").attr("checked", true);
+                        $("#rodselectedyes").parent().addClass("checked");
+                    }
+                    else
+                    {
+                        $(".rodselected:eq(1)").attr("checked", true);
+                        $("#rodselectedno").parent().addClass("checked");
+                    }      
+
+ 					if (data.d.Reviewer.Id != null) {
+                            getUserName(data.d.Reviewer.Id, 'reviewer');
+                        
+                    }
+
+                }
+            },
+            error: function (err) {
+                    alert("List Item Error Message: " + JSON.stringify(err));
+                    console.log("List Item Error Message: " + JSON.stringify(err));
+            }
+        });
+}
+
+//Edit Feedback form Ended
+
+
+//Delete Candidate Item started
+function DeleteFeedbackItem()
+{
+    var restUrl = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/GetByTitle('" + listDisplayName + "')/items(" + DeleteItemId + ")";
+    jQuery.ajax({
+        url: restUrl,
+        type: "POST",  
+        headers: {
+        Accept: "application/json;odata=verbose",
+        "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+        "IF-MATCH": "*",
+        "X-HTTP-Method": "DELETE"  
+        },
+         success: function(data, status, xhr)  
+        {  
+            GetFeedbackLists();  
+        },      
+    });
+}
+//Delete Candidate Item endedd
+
+
+
+//Load Drop Down Values Started
+function LoadAllDropdown()
+{
+    $.ajax({
+           
+            url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('Feedback')/fields",
+            type: "GET",
+            headers: { "accept": "application/json;odata=verbose" },
+            async: false,
+            success: function (data) {
+
+                if (data.d.results) {
+                    for (var i = 0; i < data.d.results.length; i++) {
+                        if (data.d.results[i].StaticName == "Appointment_x0020_Type") {
+                            var appointmenttypehtml = "";
+                             appointmenttypehtml += '<option>Select</option>';
+                            for (var j = 0; j < data.d.results[i].Choices.results.length; j++) {
+                                appointmenttypehtml += '<option>' + data.d.results[i].Choices.results[j] + '</option>';
+                            }
+                            $('#drpappointmenttype').append(appointmenttypehtml);
+                        }
+
+                        if (data.d.results[i].StaticName == "Aptitude_x0020_Score") {	
+
+                            var aptitudescorehtml = "";
+                            aptitudescorehtml += '<option>Select</option>';
+                            for (var j = 0; j < data.d.results[i].Choices.results.length; j++) {
+
+                                aptitudescorehtml += '<option>' + data.d.results[i].Choices.results[j] + '</option>';
+
+                            }
+                            $('#drpapptitudescore').append(aptitudescorehtml);
+                        }
+
+                        if (data.d.results[i].StaticName == "Reviewer_x0020_Rating") {
+
+                            var reviewerratinghtml = "";
+                            reviewerratinghtml += '<option>Select</option>';
+                            for (var j = 0; j < data.d.results[i].Choices.results.length; j++) {
+
+                                reviewerratinghtml += '<option>' + data.d.results[i].Choices.results[j] + '</option>';
+
+                            }
+                            $('#drpreviewerrating').append(reviewerratinghtml);
+                        }
+
+                       
+                    }
+                }             
+            },
+            error: function (xhr) {
+                alert(xhr.status + ': ' + xhr.statusText);
+            }
+        });
+}
+function AppointmentIdDropdown()
+{
+    var Appointmenttypehtml = "";
+     $.ajax({
+            url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('Appointments')/items",
+            type: "GET",
+            headers: { "accept": "application/json;odata=verbose" },
+            async: false,
+            success: function (data) {
+
+                if (data.d.results) {
+
+                if(data.d.results.length > 0)
+                {
+                    Appointmenttypehtml += '<option value="Select">Select</option>'
+                    for(var AT_i=0;AT_i <  data.d.results.length ; AT_i++)
+                    {
+                        Appointmenttypehtml += '<option value="'+data.d.results[AT_i].ID +'">' + data.d.results[AT_i].Appointment_x0020_ID  + '</option>';
+                        
+                    }
+                    $("#drpappointmentid").html(Appointmenttypehtml);
+                }
+
+                }
+            },
+            error: function (xhr) {
+                alert(xhr.status + ': ' + xhr.statusText);
+            }
+        });
+}
+//Load Drop Down Values Ended
+
+
+//Validate the Form method started
+function validateForm() {
+		//var feedbackid_validate = $("#txtfeedbackid").val();
+		var appointmentid_validate  = $("#drpappointmentid option:selected").val();
+	    var apptitudescore_validate  = $("#drpapptitudescore option:selected").val();
+		var reviewercomment_validate  = $("#txtreviewercomment").val();
+		var reviewerrating_validate  = $("#drpreviewerrating option:selected").val();
+		var appointmenttype_validate  = $("#drpappointmenttype option:selected").val();		
+	    
+        //if (feedbackid_validate == "") {
+        //    return false;
+        //}
+        //else
+            if (reviewercomment_validate == "") {
+            return false;
+        }
+        else if (appointmenttype_validate == "Select") {
+            return false;
+        }
+        else if (appointmentid_validate == "Select") {
+            return false;
+        }
+        else if (apptitudescore_validate == "Select") {
+            return false;
+        }
+        else if (reviewerrating_validate == "Select") {
+            return false;
+        } else if ($("#reviewer .ms-entity-resolved").html() == undefined) {
+            return false;
+        }        
+
+        return true;
+}
+function radiobtnvalidation()
+{
+    var radios = document.getElementsByName("optradio1");
+    var formValid = false;
+
+    var i = 0;
+    while (!formValid && i < radios.length) {
+        if (radios[i].checked) formValid = true;
+        i++;
+    }
+
+    if (!formValid) return false;
+    return formValid;
+}
+
+  // Render and initialize the client-side People Picker.
+    function initializePeoplePicker(peoplePickerElementId) {
+        var schema = {};
+        schema['PrincipalAccountType'] = 'User,DL,SecGroup,SPGroup';
+        schema['SearchPrincipalSource'] = 15;
+        schema['ResolvePrincipalSource'] = 15;
+        schema['AllowMultipleValues'] = true;
+        schema['MaximumEntitySuggestions'] = 50;
+        schema['Width'] = '100%';
+        this.SPClientPeoplePicker_InitStandaloneControlWrapper(peoplePickerElementId, null, schema);
+    }
+
+    // Query the picker for user information.
+    function getUserInfo(peoplePickerDiv) {
+        // Get the people picker object from the page.
+        var people = peoplePickerDiv + "_TopSpan";
+        var peoplePicker = this.SPClientPeoplePicker.SPClientPeoplePickerDict[people];
+        // Get user keys.
+        var keys = peoplePicker.GetAllUserKeys();
+        GetUserId(keys, peoplePickerDiv);
+    }
+// Submit view user info starts
+    function GetUserId(userName, itemname) {
+        var user = userName.split(';');
+        for (var i = 0; i < user.length; i++) {
+            var siteUrl = _spPageContextInfo.siteAbsoluteUrl;
+            var accountName = user[i];
+            if (accountName != "") {
+                $.ajax({
+                    url: siteUrl + "/_api/web/siteusers(@v)?@v='" +
+                        encodeURIComponent(accountName) + "'",
+                    method: "GET",
+                    async: false,
+                    headers: { "Accept": "application/json; odata=verbose" },
+                    success: function (data) {
+                        ///popup user id received from site users.
+                        if (data.d) {
+                            if (itemname == "reviewer") {
+                                ReviewerId = data.d.Id;
+                            }
+                        }
+                    },
+                    error: function (data) {
+                        console.log(JSON.stringify(data));
+                    }
+                });
+            }
+        }
+
+    }
+    //Submit view user info ends
+    function insertUserInPeoplePicker(userName, peoplePickerDiv) {
+        var people = peoplePickerDiv + "_TopSpan";
+        var peoplePicker = this.SPClientPeoplePicker.SPClientPeoplePickerDict[people];
+        peoplePicker.AddUserKeys(userName);
+    }
+    function getUserName(id, peoplePickerDiv) {
+        var returnValue;
+        jQuery.ajax({
+            url: _spPageContextInfo.webAbsoluteUrl + "/_api/Web/GetUserById(" + id + ")",
+            type: "GET",
+            async: false,
+            headers: { "Accept": "application/json;odata=verbose" },
+            success: function (data) {
+                var loginName = data.d.LoginName;
+                insertUserInPeoplePicker(loginName, peoplePickerDiv);
+
+            }
+        });
+    }
+// Function Rebinding (Review)
+    function Bind_Functions() {
+
+        $(function () {
+            // run the currently selected effect
+            function runEffect() {
+                // get effect type from
+                var selectedEffect = "blind";
+                // Most effect types need no options passed by default
+                var options = {};
+                // some effects have required parameters
+                if (selectedEffect === "scale") {
+                    options = { percent: 100 };
+                } else if (selectedEffect === "size") {
+                    options = { to: { width: 100, height: 100 } };
+                }
+
+                // Run the effect
+                $(".toggleclass").toggle(selectedEffect, options, 500);
+            };
+
+            // Set effect from select menu value
+
+            $(".toggleclick").unbind();
+            $(".toggleclick").bind("click", function () {
+                runEffect();
+                var getDisval = $('.addrow.toggleclick').prop('disabled');
+                if (getDisval == false) {
+                    $('.addrow.toggleclick').prop('disabled', true);
+                    $('.editrec').prop('disabled', true);
+                    $('.table-responsive').addClass('mtop-30');
+                }
+                else {
+                    $('.addrow.toggleclick').prop('disabled', false);
+                    $('.editrec').prop('disabled', false);
+                    $('.table-responsive').removeClass('mtop-30');
+                }
+
+            });
+
+            /*Radio Button Style Starts Here*/
+            $('.radiobg input').click(function () {
+                //debugger;
+                if ($('.radiobg input').is(':checked')) {
+                    //$(event.target).parents().eq(3);
+                    $(event.target).parents().eq(3).find('input[type="radio"]').parent().removeClass('checked');
+                    $(this).parent().addClass('checked');
+                }
+            });
+            /*Radio Button Style Ends Here*/
+
+
+        });
+      }
+</script>
+
+
+
+<!--post code  getUserInfo('primaryinn');  -->

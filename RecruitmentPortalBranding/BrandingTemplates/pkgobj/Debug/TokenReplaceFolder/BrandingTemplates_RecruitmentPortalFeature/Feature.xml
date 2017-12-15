@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Feature xmlns="http://schemas.microsoft.com/sharepoint/" ActivateOnDefault="FALSE" Id="8d4e7566-61f2-4a2c-a4d4-30f4fc0d064c" Scope="Site" Title="Recruit Portal - Branding Files">
+  <ElementManifests>
+    <ElementManifest Location="MasterPage\Elements.xml" />
+    <ElementFile Location="MasterPage\Branding Files\RecruitmentPortal.html" />
+  </ElementManifests>
+</Feature>

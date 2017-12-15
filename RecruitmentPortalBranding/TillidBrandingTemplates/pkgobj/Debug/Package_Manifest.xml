@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Solution xmlns="http://schemas.microsoft.com/sharepoint/" SolutionId="3a171c91-5e11-4960-a8a3-a688edc81501" SharePointProductVersion="15.0">
+  <Assemblies>
+    <Assembly Location="TillidBrandingTemplates.dll" DeploymentTarget="GlobalAssemblyCache" />
+  </Assemblies>
+  <FeatureManifests>
+    <FeatureManifest Location="Tillid Branding_TillidBranding\Feature.xml" />
+  </FeatureManifests>
+</Solution>

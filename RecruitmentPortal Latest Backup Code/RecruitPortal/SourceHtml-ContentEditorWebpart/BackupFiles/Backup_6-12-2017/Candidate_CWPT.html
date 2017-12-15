@@ -1,0 +1,1288 @@
+<script src="/SiteAssets/RecruitmentPortal/js/common.js"></script>
+<h2 class="title_hr">HR
+</h2>
+<h3 class="subhead_candte">Candidates
+</h3>
+<div class="form_cover toggleclass">
+    <!--1st Row-->
+    <div class="row">
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>
+                            First Name *
+                        </label>
+                        <input type="text" id="txtfirstname" class="form-control" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>
+                            Last Name *
+                        </label>
+                        <input type="text" id="txtlastname" class="form-control" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>
+                            Date Of Birth *
+                        </label>
+                        <div class="input-group date" id="Datetimepicker1">
+                            <input class="form-control valid" id="txtdataofbirth" type="text" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>
+                            Gender *
+                        </label>
+                        <!-- <input type="text" id="txtgender" class="form-control" /> -->
+                        <select class="form-control" id="drpGender">
+                            <option>Select</option>
+                            <option>Male</option>
+                            <option>Female</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <label>
+                Total Experience *
+            </label>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <select class="form-control" id="drptotyearexperience">
+                            <option>Year</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <select class="form-control" id="drptotmonthexperience">
+                            <option>Month</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                            <option>11</option>
+                            <option>12</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--2nd Row-->
+    <div class="row">
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>
+                            Relevant Experience *
+                        </label>
+                        <select class="form-control" id="drprelyearexperience">
+                            <option>Select</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>
+                            Skills *
+                        </label>
+                        <select class="form-control" id="drpskills"></select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <label>
+                        Currently Working *
+                    </label>
+                    <div class="form-group">
+                        <label class="radio-inline radiobg">
+                            <input type="radio" class="rodcurrentworking" id="rodcurrentworkingyes" name="optradio1" value="Yes" />
+                            Yes
+                        </label>
+                        <label class="radio-inline radiobg">
+                            <input type="radio" class="rodcurrentworking" id="rodcurrentworkingno" name="optradio1" value="No" />
+                            No
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label>
+                        Break Period
+                    </label>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <select class="form-control" id="drpbreakperiodyear">
+                                    <option>Year</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <select class="form-control" id="drpbreakperiodmonth">
+                                    <option>Month</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label>
+                    Mobile *
+                </label>
+                <input type="text" class="form-control" id="txtmobile" />
+            </div>
+        </div>
+    </div>
+    <!--3rd Row-->
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label>
+                    Current Address *
+                </label>
+                <textarea class="form-control" rows="3" id="txtareacurrentaddress">
+                </textarea>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label>
+                    Permanent Address *
+                </label>
+                <textarea class="form-control" rows="3" id="txtareapermanentaddress">
+                </textarea>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label>
+                    Landline (Optional)
+                </label>
+                <input type="text" class="form-control" id="txtlandline" />
+            </div>
+        </div>
+    </div>
+    <!--4th Row-->
+    <div class="row">
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>
+                            Email Address *
+                        </label>
+                        <input type="text" class="form-control" id="txtemailaddress" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label>
+                        Hired
+                    </label>
+                    <div class="form-group">
+                        <label class="radio-inline radiobg">
+                            <input type="radio" class="rodhired" name="optradio2" id="rodhiredyes" />
+                            Yes
+                        </label>
+                        <label class="radio-inline radiobg">
+                            <input type="radio" class="rodhired" name="optradio2" id="rodhiredno" />
+                            No
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>
+                            Employee ID
+                        </label>
+                        <input type="text" class="form-control" id="txtempid" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>
+                            Resume *
+                        </label>
+                        <input type="file" id="txtresume" style="width: 178%;" class="form-control" />
+                        <label id="labresume"></label>
+                        <!--<input type="text" class="form-control" id="txtresume" />-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Submit Area-->
+    <p class="submit">
+        <a class="btn btn-primary" id="btnclear">Clear
+        </a>
+        <a class="btn btn-primary toggleclick" id="btnsave">Save
+        </a>
+        <a class="btn btn-primary toggleclick" id="btncancel">Cancel
+        </a>
+    </p>
+</div>
+<!--5th Row-->
+<div class="table-responsive mtop-30">
+    <table class="cantab table table-bordered paginated">
+        <thead>
+            <tr>
+                <th>First Name
+                </th>
+                <th>Last Name
+                </th>
+                <th>Date Of Birth
+                </th>
+                <th>Gender
+                </th>
+                <th>Total Exp
+                </th>
+                <th>Relevant Exp
+                </th>
+                <th>Skills
+                </th>
+                <th>Currently Working
+                </th>
+                <th class="text-center">Edit
+                </th>
+                <th class="text-center">Delete
+                </th>
+                <th style="display: none"></th>
+            </tr>
+        </thead>
+        <tbody id="candidatetbody">
+        </tbody>
+    </table>
+</div>
+<p class="submit text-right pright-5">
+    <input type="button" class="btn btn-primary addrow toggleclick" id="bntAddRow" value="+ Add Candidate" />
+</p>
+
+
+
+<script>
+    var listDisplayName = "Candidates";
+    var listInternalNameItem = "SP.Data.CandidatesListItem";
+    var DeleteItemId = ""
+    var EditItemId = "";
+    var configuration_value = "";
+    var submitviewdoclib = "Resumes";
+    var submitviewdoclibiner = "Resumes";
+
+    var FirstName = "";
+    var LastName = "";
+    var CandidateName = "";
+    var DateofBirth = "";
+    var Gender = "";
+    var TotalExperienceYear = "";
+    var TotalExperienceMonth = "";
+    var TotalExperience = "";
+    var RelevantExperience = "";
+    var Skills = [];
+    var CurrentWorking = "";
+    var BreakPeriod = "";
+    var BreakPeriodYear = "";
+    var BreakPeriodMonth = "";
+    var Mobile = "";
+    var CurrentAddress = "";
+    var PermanentAddress = "";
+    var Landline = "";
+    var EmailAddress = "";
+    var Hired = "";
+    var EmployeeId = "";
+    var Resume = "";
+    var boolpageCount_OnPageLoad = false;
+
+
+    jQuery(document).ready(function () {
+        //Load Skills Dropdown
+        configuration_value = GetConfigurationitem("Pagination Count", "Candidate");
+        LoadAllDropdown();
+        GetCandidatesLists();
+
+
+        $("#btnsave").click(function () {
+            // alert('hi');
+            if (validateForm() && emailvalidation() && radiobtnvalidation()) {
+
+                GetCandidatesEntry();
+                if (EditItemId != "") {
+                    EditCandidatesEntry();
+
+                }
+                else {
+                    BindCandidatesEntry();
+                }
+
+
+            }
+            else {
+                alert("Please Enter all the required fields");
+
+            }
+        //    GetCandidatesLists();
+            $('.page-number').unbind();
+            $('.page-number').bind('click', function () {
+                $('.table-responsive').hide();
+                $('.table-responsive').show('slow');
+            });
+
+        });
+
+        $("#btnclear").click(function () {
+            Cleartextentry();
+        });
+
+
+        $("#bntAddRow").click(function () {
+            if (EditItemId != "") {
+                Cleartextentry();
+                $("#btnsave").html("Save");
+                EditItemId = "";
+            }
+            else {
+                Cleartextentry();
+                $("#btnsave").html("Save");
+            }
+        });
+
+
+
+    });
+
+    function Cleartextentry() {
+        $("#txtfirstname").val('');
+        $("#txtlastname").val('');
+        $('#Datetimepicker1').find("input").val('');
+        $("#drpGender").val();
+        $("#drptotyearexperience").val("Year");
+        $("#drptotmonthexperience").val("Month");
+        $("#drprelyearexperience ").val("1");
+        $("#drpskills").val();
+        $("#drpbreakperiodyear").val("Year");
+        $("#drpbreakperiodmonth").val("Month");
+        $("#txtmobile").val('');
+        $("#txtareacurrentaddress").val('');
+        $("#txtareapermanentaddress").val('');
+        $("#txtlandline").val('');
+        $("#txtemailaddress").val('');
+        $("#txtempid").val('');
+        $("#txtresume").val('');
+        $("#labresume").html('');
+
+    }
+
+
+    // Get Text Values started
+    function GetCandidatesEntry() {
+        FirstName = $("#txtfirstname").val();
+        LastName = $("#txtlastname").val();
+        CandidateName = FirstName + " " + LastName;
+        DateofBirth = $('#Datetimepicker1').find("input").val();
+        Gender = $("#drpGender option:selected").val();
+        TotalExperienceYear = $("#drptotyearexperience option:selected").val();
+        TotalExperienceMonth = $("#drptotmonthexperience option:selected").val();
+
+        if (TotalExperienceYear == "Year" && TotalExperienceMonth != "Month") {
+            TotalExperience = "." + TotalExperienceMonth;
+        }
+        else if (TotalExperienceYear != "Year" && TotalExperienceMonth == "Month") {
+            TotalExperience = TotalExperienceYear;
+        }
+        else if (TotalExperienceYear != "Year" && TotalExperienceMonth != "Month") {
+            TotalExperience = TotalExperienceYear + "." + TotalExperienceMonth;
+        }
+        RelevantExperience = $("#drprelyearexperience option:selected").val();
+        Skills.push($("#drpskills option:selected").val());
+        $('.rodcurrentworking').each(function () {
+            if ($(this).is(':checked')) {
+                if ($(this).attr('value') == "Yes") {
+                    CurrentWorking = "Yes";
+                }
+                else {
+                    CurrentWorking = "No";
+                }
+
+            }
+        });
+        BreakPeriodYear = $("#drpbreakperiodyear option:selected").val();
+        BreakPeriodMonth = $("#drpbreakperiodmonth option:selected").val();
+        if (BreakPeriodYear == "Year" && BreakPeriodMonth != "Month") {
+            BreakPeriod = "." + BreakPeriodMonth;
+        }
+        else if (BreakPeriodYear != "Year" && BreakPeriodMonth == "Month") {
+            BreakPeriod = BreakPeriodYear;
+        }
+        else if (BreakPeriodYear != "Year" && BreakPeriodMonth != "Month") {
+            BreakPeriod = BreakPeriodYear + "." + BreakPeriodMonth;
+        }
+        Mobile = $("#txtmobile").val();
+        CurrentAddress = $("#txtareacurrentaddress").val();
+        PermanentAddress = $("#txtareapermanentaddress").val();
+        Landline = $("#txtlandline").val();
+        EmailAddress = $("#txtemailaddress").val();
+        $('.rodhired').each(function () {
+            if ($(this).is(':checked')) {
+                if ($(this).attr('value') == "Yes") {
+                    Hired = "Yes";
+                }
+                else {
+                    Hired = "No";
+                }
+
+            }
+        });
+        EmployeeId = $("#txtempid").val();
+        var filepath = $("#txtresume").val();
+        var filedetails = filepath.split('\\');
+        Resume = _spPageContextInfo.webAbsoluteUrl + "/Resumes/" + filedetails[2];
+    }
+    // Get Text Values Ended
+
+    //Post Candidate items in th list started
+
+    function BindCandidatesEntry() {
+        var requestUri = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getByTitle('" + listDisplayName + "')/items";
+        var Header_Body = {
+            "Accept": "application/json;odata=verbose",
+            "content-type": "application/json; odata=verbose",
+            "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+            //"X-HTTP-Method": "MERGE",
+            //"If-Match": "*"
+        }
+        $.ajax(
+            {
+                url: requestUri,
+                async: false,
+                type: "POST",
+                data: JSON.stringify({
+                    '__metadata': { 'type': listInternalNameItem },
+                   // 'Candidate_x0020_ID': "CD002",
+                    'Candidate_x0020_Name': CandidateName,
+                    'First_x0020_Name': FirstName,
+                    'Last_x0020_Name': LastName,
+                    'Date_x0020_of_x0020_Birth': DateofBirth,
+                    'Sex': Gender,
+                    'Total_x0020_Experience': parseFloat(TotalExperience),
+                    'Relevent_x0020_Experience': parseFloat(RelevantExperience),
+                    'SkillsId': { results: Skills },
+                    'Currently_x0020_Working': CurrentWorking,
+                    'Breaking_x0020_Period': parseFloat(BreakPeriod),
+                    'Mobile_x0020_No': Mobile,
+                    'Current_x0020_Address': CurrentAddress,
+                    'Permanent_x0020_Address': PermanentAddress,
+                    'Landline_x0020_No': Landline,
+                    'Email_x0020_ID': EmailAddress,
+                    'Hired': Hired,
+                    'Employee_x0020_ID': parseFloat(EmployeeId),
+                    'Resume': { Url: Resume, Description: Resume },
+
+                }),
+                headers: Header_Body,
+                success: function (data) {
+
+                    alert("Item added successfully");
+                    
+                    var ipitemid = data.d.ID;
+                  //  alert(data.d.ID);
+                    var ipitemtitle = "Candidate_" + FirstName + " - " + LastName;
+                    var filepath = "txtresume";
+                    if ($("#txtresume").val() != "") {
+                        Comuploaddocumentlibrary(filepath, submitviewdoclib, submitviewdoclibiner, ipitemtitle, ipitemid);
+                    }
+                    else {
+                        GetCandidatesLists();
+                    }
+
+                    //  GetCandidatesLists();
+                },
+                error: function (err) {
+                    //alert("Candidate List Item Error Message: " + JSON.stringify(err));
+                    console.log("Candidate List Item Error Message: " + JSON.stringify(err));
+                }
+            });
+    }
+    //Post Candidate items in th list ended
+
+    //Get Candidated Item from the list Started
+    function GetCandidatesLists() {
+        $("#divpagination").remove();
+        var candidatehtml = "";
+        var requestUri = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getByTitle('" + listDisplayName + "')/items?$select=ID,First_x0020_Name,Last_x0020_Name,Date_x0020_of_x0020_Birth,Sex,Total_x0020_Experience,Relevent_x0020_Experience,Currently_x0020_Working,Skills/Id,Skills/Title&$expand=Skills";
+        $.ajax(
+            {
+                url: requestUri,
+                async: false,
+                type: "GET",
+                headers: { "Accept": "application/json; odata=verbose" },
+                success: function (data) {
+                    if (data.d.results) {
+                       //console.log(data.d.results);
+                        if (data.d.results.length > 0) {
+
+                            // (Review)
+                            boolpageCount_OnPageLoad = true;
+                            $('.pagination').show();
+                            $(".cantab").show();
+
+                            for (var i = 0; i < data.d.results.length; i++) {
+
+
+                                var DOBSplit = data.d.results[i].Date_x0020_of_x0020_Birth.split('T')[0].split('-');
+                                var DOB = DOBSplit[2] + "-" + DOBSplit[1] + "-" + DOBSplit[0];
+
+                                var firstname_empty = data.d.results[i].First_x0020_Name != null ? data.d.results[i].First_x0020_Name : "";
+                                var lastname_empty = data.d.results[i].Last_x0020_Name != null ? data.d.results[i].Last_x0020_Name : "";
+                                var totalexp_empty = data.d.results[i].Total_x0020_Experience != null ? data.d.results[i].Total_x0020_Experience : "";
+                                var relevantexp_empty = data.d.results[i].Relevent_x0020_Experience != null ? data.d.results[i].Relevent_x0020_Experience : "";
+                                candidatehtml += '<tr>';
+                                candidatehtml += '<td>' + firstname_empty + '</td>';
+                                candidatehtml += '<td>' + lastname_empty + '</td>';
+
+                                candidatehtml += '<td>' + DOB + '</td>';
+                                candidatehtml += '<td>' + data.d.results[i].Sex + '</td>';
+                                candidatehtml += '<td>' + totalexp_empty + '</td>';
+                                candidatehtml += '<td>' + relevantexp_empty + '</td>';
+
+                                if (data.d.results[i].Skills.results.length > 0) {
+                                    candidatehtml += '<td>';
+                                    var skillstable = "";
+                                    for (var j = 0; j < data.d.results[i].Skills.results.length; j++) {
+                                        skillstable += data.d.results[i].Skills.results[j].Title;
+                                    }
+                                    candidatehtml += skillstable + '</td>';
+                                }
+                                else {
+                                    candidatehtml += '<td></td>';
+                                }
+
+
+                                candidatehtml += '<td>' + data.d.results[i].Currently_x0020_Working + '</td>';
+                                candidatehtml += '<td align="center"><span class="recicon editicon toggleclick"><input type="checkbox" name="editrec" class="editrec"/></span></td>';
+                                candidatehtml += '<td align="center"><span class="recicon deleteicon"><input type="checkbox" name="dleterec" class="dleterec" /></span></td>';
+                                var Doclib_CandidateID = DocumentLibCandidateItemID(data.d.results[i].ID);
+                                candidatehtml += '<td style="display:none">' + Doclib_CandidateID + '</td>';
+                                candidatehtml += '<td style="display:none">' + data.d.results[i].ID + '</td>';                               
+                                candidatehtml += '</tr>';
+                            }
+                            $("#candidatetbody").html(candidatehtml);
+                            $(".dleterec").click(function () {
+                                alert('Are you sure want to delete this record?');
+                                DeleteItemId = $(this).closest("tr").find("td:last").text();
+                                DeleteCandidateItem();
+                                var DeleteDocItemId = $(this).closest("tr").find("td:nth-child(11)").text();
+                                DeleteDocLibCandidateItem(DeleteDocItemId);
+
+                            });
+                            $(".editrec").click(function () {
+
+                                EditItemId = $(this).closest("tr").find("td:last").text();
+                                EditCandidateItem();
+                                Bind_Functions();
+                                $("#btnsave").click(function () {
+                                    //alert('hi');
+                                    if (validateForm() && emailvalidation() && radiobtnvalidation()) {
+                                        GetCandidatesEntry();
+                                        if (EditItemId != "") {
+                                            EditCandidatesEntry();
+
+                                        }
+                                        else {
+                                            BindCandidatesEntry();
+                                        }
+
+                                    }
+                                    else {
+                                        alert("Please Enter all the required fields")
+                                    }
+                                    GetCandidatesLists();
+
+                                });
+
+                                $("#btnclear").click(function () {
+                                    Cleartextentry();
+                                });
+
+
+                                $("#bntAddRow").click(function () {
+                                    if (EditItemId != "") {
+                                        Cleartextentry();
+                                        $("#btnsave").html("Save");
+                                        EditItemId = "";
+                                    }
+                                    else {
+                                        Cleartextentry();
+                                        $("#btnsave").html("Save");
+                                    }
+                                });
+
+                            });
+                            // Rebinding Starts Here (Review)
+
+                            // Unbind_Functions();
+                            // Bind_Functions();
+                            //Pagination code started
+                            $('table.paginated').each(function () {
+                                var currentPage = 0;
+                                var numPerPage = "";
+                                if (configuration_value != "") {
+                                    numPerPage = configuration_value;
+                                }
+                                else {
+                                    numPerPage = 10;
+                                }
+
+                                var $table = $(this);
+                                $table.bind('repaginate', function () {
+                                    $table.find('tbody tr').hide().slice(currentPage * numPerPage, (currentPage + 1) * numPerPage).show();
+                                });
+                                $table.trigger('repaginate');
+                                var numRows = $table.find('tbody tr').length;
+                                var numPages = Math.ceil(numRows / numPerPage);
+                                var $pager = $('<div class="pagination" id="divpagination"></div>');
+                                var $previous = $('<span class="previous"><<</spnan>');
+                                var $next = $('<span class="next">>></spnan>');
+                                if (numRows > numPerPage) {
+                                    for (var page = 0; page < numPages; page++) {
+                                        $('<span class="page-number"></span>').text(page + 1).bind('click', {
+                                            newPage: page
+                                        }, function (event) {
+                                            currentPage = event.data['newPage'];
+                                            $table.trigger('repaginate');
+                                            $(this).addClass('active').siblings().removeClass('active');
+                                        }).appendTo($pager).addClass('clickable');
+                                    }
+                                    $pager.insertAfter($table).find('span.page-number:first').addClass('active');
+                                    $previous.insertBefore('span.page-number:first');
+                                    $next.insertAfter('span.page-number:last');
+                                }
+                                $next.click(function (e) {
+                                    $previous.addClass('clickable');
+                                    $pager.find('.active').next('.page-number.clickable').click();
+                                });
+                                $previous.click(function (e) {
+                                    $next.addClass('clickable');
+                                    $pager.find('.active').prev('.page-number.clickable').click();
+                                });
+                                $table.on('repaginate', function () {
+                                    $next.addClass('clickable');
+                                    $previous.addClass('clickable');
+
+                                    setTimeout(function () {
+                                        var $active = $pager.find('.page-number.active');
+                                        if ($active.next('.page-number.clickable').length === 0) {
+                                            $next.removeClass('clickable');
+                                        } else if ($active.prev('.page-number.clickable').length === 0) {
+                                            $previous.removeClass('clickable');
+                                        }
+                                        $('.table-responsive').hide();
+                                        $('.table-responsive').show(1000);
+                                    });
+                                });
+                                $table.trigger('repaginate');
+                                if (!boolpageCount_OnPageLoad) {
+                                    $('.pagination').hide();
+                                }
+
+
+                            });
+                            //Pagination code ended
+                        }
+                        else {
+                            $(".cantab").css("display", "none");
+                        }
+                    }
+                },
+                error: function (err) {
+                    //alert("error");
+                    console.log("List Item Error Message: " + JSON.stringify(err));
+                }
+            });
+    }
+    //Get Candidated Item from the list ended
+
+    //Edit and post Candidate item started
+
+    function EditCandidatesEntry() {
+        //alert(EditItemId);
+        var requestUri = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getByTitle('" + listDisplayName + "')/items(" + EditItemId + ")";
+        var Header_Body = {
+            "Accept": "application/json;odata=verbose",
+            "content-type": "application/json; odata=verbose",
+            "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+            "X-HTTP-Method": "MERGE",
+            "If-Match": "*"
+        }
+        $.ajax(
+            {
+                url: requestUri,
+                async: false,
+                type: "POST",
+                data: JSON.stringify({
+                    '__metadata': { 'type': listInternalNameItem },
+                    //'Candidate_x0020_ID': "CD002",
+                    'Candidate_x0020_Name': CandidateName,
+                    'First_x0020_Name': FirstName,
+                    'Last_x0020_Name': LastName,
+                    'Date_x0020_of_x0020_Birth': DateofBirth,
+                    'Sex': Gender,
+                    'Total_x0020_Experience': parseFloat(TotalExperience),
+                    'Relevent_x0020_Experience': parseFloat(RelevantExperience),
+                    'SkillsId': { results: Skills },
+                    'Currently_x0020_Working': CurrentWorking,
+                    'Breaking_x0020_Period': parseFloat(BreakPeriod),
+                    'Mobile_x0020_No': Mobile,
+                    'Current_x0020_Address': CurrentAddress,
+                    'Permanent_x0020_Address': PermanentAddress,
+                    'Landline_x0020_No': Landline,
+                    'Email_x0020_ID': EmailAddress,
+                    'Hired': Hired,
+                    'Employee_x0020_ID': parseFloat(EmployeeId),
+                    'Resume': { Url: Resume, Description: Resume },
+
+                }),
+                headers: Header_Body,
+                success: function (data) {
+                    alert("Item updated successfully");
+                    var ipitemid = EditItemId;
+                    var ipitemtitle = "Candidate_" + FirstName + " - " + LastName;
+                    var filepath = "txtresume";
+                    if ($("#txtresume").val() != "") {
+                        Comuploaddocumentlibrary(filepath, submitviewdoclib, submitviewdoclibiner, ipitemtitle, ipitemid);
+                    }
+                    else {
+                        GetCandidatesLists();
+                    }
+                },
+                error: function (err) {
+                   // alert("Candidate List Item Error Message: " + JSON.stringify(err));
+                    console.log("Candidate List Item Error Message: " + JSON.stringify(err));
+                }
+            });
+    }
+    //Edit  and post Candidate item ended
+
+
+    //Edit and bind text entry Candidate started
+    function EditCandidateItem() {
+        //alert('hi  update');
+        $("#btnsave").html("Update");
+        var requestUri = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/GetByTitle('" + listDisplayName + "')/items(" + EditItemId + ")?$select=ID,First_x0020_Name,Last_x0020_Name,Date_x0020_of_x0020_Birth,Sex,Total_x0020_Experience,Breaking_x0020_Period,Mobile_x0020_No,Current_x0020_Address,Permanent_x0020_Address,Landline_x0020_No,Email_x0020_ID,Hired,Employee_x0020_ID,Resume,Relevent_x0020_Experience,Currently_x0020_Working,Skills/Id,Skills/Title&$expand=Skills";
+        $.ajax(
+            {
+                url: requestUri,
+                async: false,
+                type: "GET",
+                headers: { "Accept": "application/json; odata=verbose" },
+                success: function (data) {
+                    if (data.d) {
+                       // console.log(data.d);
+                        var totalexp = data.d.Total_x0020_Experience;
+                        var totalexpslit = (totalexp + "").split(".");
+
+                        var breakperiod = data.d.Breaking_x0020_Period;
+                        var breakperiodslit = (breakperiod + "").split(".");
+
+                        $("#txtfirstname").val(data.d.First_x0020_Name);
+                        $("#txtlastname").val(data.d.Last_x0020_Name);
+                        var DOBSplit = data.d.Date_x0020_of_x0020_Birth.split('T')[0].split('-');
+                        var DOB = DOBSplit[1] + "-" + DOBSplit[2] + "-" + DOBSplit[0];
+                        $('#Datetimepicker1').find("input").val(DOB);
+                        $("#drpGender").val(data.d.Sex);
+                        $("#drptotyearexperience").val(totalexpslit[0]);
+                        $("#drptotmonthexperience").val(totalexpslit[1]);
+
+                        $("#drprelyearexperience ").val(data.d.Relevent_x0020_Experience);
+                        $("#drpskills").val(data.d.Skills.results[0].Id);
+                        if (data.d.Currently_x0020_Working == "Yes") {
+                            $(".rodcurrentworking:eq(0)").attr("checked", true);
+                            $("#rodcurrentworkingyes").parent().addClass("checked");
+                        }
+                        else {
+                            $(".rodcurrentworking:eq(1)").attr("checked", true);
+                            $("#rodcurrentworkingno").parent().addClass("checked");
+                        }
+                        $("#drpbreakperiodyear").val(breakperiodslit[0]);
+                        $("#drpbreakperiodmonth").val(breakperiodslit[1]);
+                        $("#txtmobile").val(data.d.Mobile_x0020_No);
+                        $("#txtareacurrentaddress").val($(data.d.Current_x0020_Address).text());
+                        $("#txtareapermanentaddress").val($(data.d.Permanent_x0020_Address).text());
+                        $("#txtlandline").val(data.d.Landline_x0020_No);
+                        $("#txtemailaddress").val(data.d.Email_x0020_ID);
+                        if (data.d.Hired == "Yes") {
+                            $(".rodhired:eq(0)").attr("checked", true);
+                            $("#rodhiredyes").parent().addClass("checked");
+                        }
+                        else {
+                            $(".rodhired:eq(1)").attr("checked", true);
+                            $("#rodhiredno").parent().addClass("checked");
+                        }
+
+                        $("#txtempid").val(data.d.Employee_x0020_ID);
+                        DocumentLibCandidateItem();
+                        
+                    }
+
+                },
+                error: function (err) {
+                    //alert("error");
+                    console.log("List Item Error Message: " + JSON.stringify(err));
+                }
+            });
+
+    }
+    //Edit and bind text entry Candidate ended`
+
+    //Bind in the table from candidate Document library started    
+    function DocumentLibCandidateItemID(candidate_itemid) {
+        var DocumentID = "";
+        var requestUri = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/GetByTitle('Resumes')/items?$select=CandidateId,ID,Title,FileLeafRef&$filter=CandidateId eq '" + candidate_itemid + "'";
+        $.ajax(
+            {
+                url: requestUri,
+                async: false,
+                type: "GET",
+                headers: { "Accept": "application/json; odata=verbose" },
+                success: function (data) {
+                    if (data.d.results.length > 0) {
+                        DocumentID = data.d.results[0].ID;                         
+                    }
+                },
+                error: function (err) {
+                    //alert("error");
+                    console.log("List Item Error Message: " + JSON.stringify(err));
+                }
+            });
+        return DocumentID;
+    }
+    //Bind in the table from candidate Document library ended
+
+
+    //Edit and Bind text entry from candidate Document library started    
+    function DocumentLibCandidateItem() {
+        $("#labresume").html("");
+        var requestUri = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/GetByTitle('Resumes')/items?$select=CandidateId,ID,Title,FileLeafRef&$filter=CandidateId eq '" + EditItemId + "'";
+        $.ajax(
+            {
+                url: requestUri,
+                async: false,
+                type: "GET",
+                headers: { "Accept": "application/json; odata=verbose" },
+                success: function (data) {
+                    if (data.d.results.length > 0) {
+                        var a_tag = '<a target="_blank" href="' + _spPageContextInfo.webAbsoluteUrl + '/Resumes/' + data.d.results[0].FileLeafRef + '">' + data.d.results[0].FileLeafRef + '</a>';
+                        $("#labresume").html(a_tag);
+                    }
+                },
+                error: function (err) {
+                   // alert("error");
+                    console.log("List Item Error Message: " + JSON.stringify(err));
+                }
+            });
+
+    }
+    //Edit and Bind text entry from candidate Document library ended
+
+    //Delete Candidate Item started
+    function DeleteCandidateItem() {
+        var restUrl = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/GetByTitle('" + listDisplayName + "')/items(" + DeleteItemId + ")";
+        jQuery.ajax({
+            url: restUrl,
+            type: "POST",
+            headers: {
+                Accept: "application/json;odata=verbose",
+                "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+                "IF-MATCH": "*",
+                "X-HTTP-Method": "DELETE"
+            },
+            success: function (data, status, xhr) {
+                GetCandidatesLists();
+            },
+        });
+    }
+    function DeleteDocLibCandidateItem(Delete_DocLib) {
+       // console.log(Delete_DocLib);
+        var restUrl = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/GetByTitle('Resumes')/items(" + Delete_DocLib + ")";
+        jQuery.ajax({
+            url: restUrl,
+            type: "POST",
+            headers: {
+                Accept: "application/json;odata=verbose",
+                "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+                "IF-MATCH": "*",
+                "X-HTTP-Method": "DELETE"
+            },
+            success: function (data, status, xhr) {
+                GetCandidatesLists();
+            },
+        });
+    }
+    //Delete Candidate Item endedd
+
+    //Load Drop Down Values Started
+    function LoadAllDropdown() {
+        var skillshtml = "";
+        $.ajax({
+            url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('Skills')/items",
+            type: "GET",
+            headers: { "accept": "application/json;odata=verbose" },
+            async: false,
+            success: function (data) {
+
+                if (data.d.results) {
+
+                    if (data.d.results.length > 0) {
+                        skillshtml += '<option value="Select">Select</option>'
+                        for (var s_i = 0; s_i < data.d.results.length; s_i++) {
+                            skillshtml += '<option value="' + data.d.results[s_i].ID + '">' + data.d.results[s_i].Title + '</option>';
+
+                        }
+                        $("#drpskills").html(skillshtml);
+                    }
+
+                }
+            },
+            error: function (xhr) {
+                alert(xhr.status + ': ' + xhr.statusText);
+            }
+        });
+    }
+    //Load Drop Down Values Ended
+
+    //Validate the Form method started
+    function validateForm() {
+
+        var firstname_validate = $("#txtfirstname").val();
+        var lastname_validate = $("#txtlastname").val();
+        var dataofbirth_validate = $("#txtdataofbirth").val();
+        var gender_validate = $("#drpGender option:selected").val();
+        var totalexpyear_validate = $("#drptotyearexperience  option:selected").val();
+        var totalexpmonth_validate = $("#drptotmonthexperience option:selected").val();
+        var relvantexp_validate = $("#drprelyearexperience option:selected").val();
+        var skills_validate = $("#drpskills option:selected").val();
+        //var currentworking_validate = ("#indicatestageidea option:selected").text();
+        var mobile_validate = $("#txtmobile").val();
+        var emailaddress_validate = $("#txtemailaddress").val();
+        var resume_validate = $("#txtresume").val();
+        var currentaddress_validate = $("#txtareacurrentaddress").val();
+        var permanentaddress_validate = $("#txtareapermanentaddress").val();
+        if (firstname_validate == "") {
+            return false;
+        } else if (lastname_validate == "") {
+            return false;
+        }
+        else if (dataofbirth_validate == "") {
+            return false;
+        }
+        else if (gender_validate == "Select") {
+            return false;
+        }
+        else if (totalexpyear_validate == "Year") {
+            return false;
+        }
+        else if (resume_validate == "") {
+                 return false;
+             }
+        else if (relvantexp_validate == "Select") {
+            return false;
+        }
+        else if (skills_validate == "Select") {
+            return false;
+        }
+
+        if (mobile_validate == "") {
+            return false;
+        }
+
+        if (currentaddress_validate == "") {
+            return false;
+        }
+        if (permanentaddress_validate == "") {
+            return false;
+        }
+
+        return true;
+    }
+    function emailvalidation() {
+        var x = $("#txtemailaddress").val();
+        var atpos = x.indexOf("@");
+        var dotpos = x.lastIndexOf(".");
+        if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= x.length) {
+            return false;
+        }
+        return true;
+    }
+    //function resumeurlvalidation()
+    //{
+    //     var url = $("#txtresume").val();
+    //    var pattern = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
+    //    if (!pattern.test(url)) {
+    //        return false;
+    //    }
+    //    return true;
+    //}
+    function radiobtnvalidation() {
+        var radios = document.getElementsByName("optradio1");
+        var formValid = false;
+
+        var i = 0;
+        while (!formValid && i < radios.length) {
+            if (radios[i].checked) formValid = true;
+            i++;
+        }
+
+        if (!formValid) return false;
+        return formValid;
+    }
+
+    //Validate the Form method ended
+    
+    // Function Rebinding (Review)
+    function Bind_Functions() {
+
+        $(function () {
+            // run the currently selected effect
+            function runEffect() {
+                // get effect type from
+                var selectedEffect = "blind";
+                // Most effect types need no options passed by default
+                var options = {};
+                // some effects have required parameters
+                if (selectedEffect === "scale") {
+                    options = { percent: 100 };
+                } else if (selectedEffect === "size") {
+                    options = { to: { width: 100, height: 100 } };
+                }
+
+                // Run the effect
+                $(".toggleclass").toggle(selectedEffect, options, 500);
+            };
+
+            // Set effect from select menu value
+
+            $(".toggleclick").unbind();
+            $(".toggleclick").bind("click", function () {
+                runEffect();
+                var getDisval = $('.addrow.toggleclick').prop('disabled');
+                if (getDisval == false) {
+                    $('.addrow.toggleclick').prop('disabled', true);
+                    $('.editrec').prop('disabled', true);
+                    $('.table-responsive').addClass('mtop-30');
+                }
+                else {
+                    $('.addrow.toggleclick').prop('disabled', false);
+                    $('.editrec').prop('disabled', false);
+                    $('.table-responsive').removeClass('mtop-30');
+                }
+
+            });
+
+            /*Radio Button Style Starts Here*/
+            $('.radiobg input').click(function () {
+                //debugger;
+                if ($('.radiobg input').is(':checked')) {
+                    //$(event.target).parents().eq(3);
+                    $(event.target).parents().eq(3).find('input[type="radio"]').parent().removeClass('checked');
+                    $(this).parent().addClass('checked');
+                }
+            });
+
+
+            $('.page-number').unbind();
+            $('.page-number').bind('click', function () {
+                $('.table-responsive').hide();
+                $('.table-responsive').show('slow');
+            });
+
+            /*Radio Button Style Ends Here*/
+
+
+        });
+    }
+
+    // function Unbind (Review)
+    function Unbind_Functions() {
+
+        // $(".editrec").unbind();
+        // $("#btnsave").unbind();
+        // $("#btnclear").unbind();
+        // $("#bntAddRow").unbind();
+    }
+
+    //Upload Document Script Starts
+    function Comuploaddocumentlibrary(inputFile, doclistname, doclistnameiner, ipitemtitle, ipitemid) {
+        if (!window.FileReader) {
+            alert("This browser does not support the HTML5 File APIs");
+            return;
+        }
+
+        var element = document.getElementById(inputFile);
+        var file = element.files[0];
+        var parts = element.value.split("\\");
+     //   var fileName = parts[parts.length - 1];
+        var fileName = ipitemtitle;
+
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            addItem(e.target.result, fileName);
+        }
+        reader.onerror = function (e) {
+            alert(e.target.error);
+        }
+        reader.readAsArrayBuffer(file);
+
+        function addItem(buffer, fileName) {
+            var call = uploadDocument(buffer, fileName);
+            call.done(function (data, textStatus, jqXHR) {
+                var call2 = getItem(data.d);
+                call2.done(function (data, textStatus, jqXHR) {
+                    var item = data.d;
+                    var call3 = updateItemFields(item);
+                    call3.done(function (data, textStatus, jqXHR) {
+                        var div = jQuery("#message");
+                        div.text("Item added");
+                        GetCandidatesLists();
+                        //   alert("File has been uploaded successfully");
+
+
+                    });
+                    call3.fail(function (jqXHR, textStatus, errorThrown) {
+                        failHandler(jqXHR, textStatus, errorThrown);
+                    });
+                });
+                call2.fail(function (jqXHR, textStatus, errorThrown) {
+                    failHandler(jqXHR, textStatus, errorThrown);
+                });
+            });
+            call.fail(function (jqXHR, textStatus, errorThrown) {
+                failHandler(jqXHR, textStatus, errorThrown);
+            });
+        }
+
+        function uploadDocument(buffer, fileName) {
+            var url = String.format(
+                "{0}/_api/Web/Lists/getByTitle('" + doclistname + "')/RootFolder/Files/Add(url='{1}', overwrite=true)",
+                _spPageContextInfo.webAbsoluteUrl, fileName);
+            var call = jQuery.ajax({
+                url: url,
+                type: "POST",
+                data: buffer,
+                async: false,
+                processData: false,
+                headers: {
+                    Accept: "application/json;odata=verbose",
+                    "X-RequestDigest": jQuery("#__REQUESTDIGEST").val(),
+                    "Content-Length": buffer.byteLength
+                }
+            });
+
+            return call;
+        }
+
+        function getItem(file) {
+            var call = jQuery.ajax({
+                url: file.ListItemAllFields.__deferred.uri,
+                type: "GET",
+                async: false,
+                dataType: "json",
+                headers: {
+                    Accept: "application/json;odata=verbose"
+                }
+            });
+
+            return call;
+        }
+
+        function updateItemFields(item) {
+            var itemtitle = "";
+            itemtitle = FirstName + " " + LastName;
+            var itemid = "" + ipitemid;
+            var call = jQuery.ajax({
+                url: _spPageContextInfo.webAbsoluteUrl +
+                    "/_api/Web/Lists/getByTitle('" + doclistname + "')/Items(" +
+                    item.Id + ")",
+                type: "POST",
+                async: false,
+                data: JSON.stringify({
+                    "__metadata": { type: "SP.Data." + doclistnameiner + "Item" },
+                    'Title': itemtitle,
+                    'CandidateId': itemid
+                }),
+                headers: {
+                    Accept: "application/json;odata=verbose",
+                    "Content-Type": "application/json;odata=verbose",
+                    "X-RequestDigest": jQuery("#__REQUESTDIGEST").val(),
+                    "IF-MATCH": item.__metadata.etag,
+                    "X-Http-Method": "MERGE"
+                }
+            });
+
+            return call;
+        }
+
+        function failHandler(jqXHR, textStatus, errorThrown) {
+            var response = JSON.parse(jqXHR.responseText);
+            var message = response ? response.error.message.value : textStatus;
+            //alert("Call failed. Error: " + message);
+            console.log("Call failed. Error: " + message);
+        }
+    }
+</script>
+<!-- //com -->

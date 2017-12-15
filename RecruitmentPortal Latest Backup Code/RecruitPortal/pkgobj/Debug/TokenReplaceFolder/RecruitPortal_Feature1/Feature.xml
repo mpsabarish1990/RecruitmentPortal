@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Feature xmlns="http://schemas.microsoft.com/sharepoint/" Id="3678b6c8-0818-46c8-a100-6432a12a4ac0" Scope="Site" Title="RecruitPortal Feature1">
+  <ElementManifests>
+    <ElementManifest Location="QuickLaunchNavigation\Elements.xml" />
+    <ElementFile Location="QuickLaunchNavigation\QuickLaunchNavigation.webpart" />
+  </ElementManifests>
+</Feature>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Solution xmlns="http://schemas.microsoft.com/sharepoint/" SolutionId="9a92040c-da20-4f2f-aee4-43403ecacdda" SharePointProductVersion="15.0">
+  <Assemblies>
+    <Assembly Location="RecruitPortal.dll" DeploymentTarget="GlobalAssemblyCache">
+      <SafeControls>
+        <SafeControl Assembly="RecruitPortal, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6c80c47b6cf6a047" Namespace="RecruitPortal.Webparts.QuickLaunchNavigation" TypeName="*" />
+      </SafeControls>
+    </Assembly>
+  </Assemblies>
+  <FeatureManifests>
+    <FeatureManifest Location="RecruitPortal_Feature1\Feature.xml" />
+  </FeatureManifests>
+</Solution>

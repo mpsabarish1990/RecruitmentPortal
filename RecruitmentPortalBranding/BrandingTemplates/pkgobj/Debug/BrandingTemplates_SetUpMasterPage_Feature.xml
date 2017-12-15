@@ -1,0 +1,2 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Feature xmlns="http://schemas.microsoft.com/sharepoint/" Id="5974c010-0e5d-4d66-b024-e6e7c02802f5" ReceiverAssembly="BrandingTemplates, Version=1.0.0.0, Culture=neutral, PublicKeyToken=2152154d6448babb" ReceiverClass="BrandingTemplates.Features.SetUpMasterPage.SetUpMasterPageEventReceiver" Scope="Web" Title="To Set Custom Master Page as Default"></Feature>

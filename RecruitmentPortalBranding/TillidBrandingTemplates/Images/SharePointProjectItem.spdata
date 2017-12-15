@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProjectItem Type="Microsoft.VisualStudio.SharePoint.Module" DefaultFile="Elements.xml" SupportedTrustLevels="All" SupportedDeploymentScopes="Web, Site" xmlns="http://schemas.microsoft.com/VisualStudio/2010/SharePointTools/SharePointProjectItemModel">
+  <Files>
+    <ProjectItemFile Source="Elements.xml" Target="Images\" Type="ElementManifest" />
+    <ProjectItemFile Source="appointment.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="assetmanagemtn.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="delete.jpg" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="edit.jpg" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="employee.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="feedback.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="finance.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="first.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="hr Copy.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="hr.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="last.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="leavebox.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="logo.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="logo.svg" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="next.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="offer.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="options.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="previous.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="radio-checked.jpg" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="radio-unchecked.jpg" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="skils.png" Target="Images\" Type="ElementFile" />
+  </Files>
+</ProjectItem>

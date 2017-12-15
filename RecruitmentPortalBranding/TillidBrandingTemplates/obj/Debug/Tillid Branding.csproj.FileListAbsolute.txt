@@ -1,0 +1,4 @@
+C:\Users\devadmin\documents\visual studio 2012\Projects\RecruitPortalBranding\TillidBrandingTemplates\bin\Debug\TillidBrandingTemplates.dll
+C:\Users\devadmin\documents\visual studio 2012\Projects\RecruitPortalBranding\TillidBrandingTemplates\bin\Debug\TillidBrandingTemplates.pdb
+C:\Users\devadmin\documents\visual studio 2012\Projects\RecruitPortalBranding\TillidBrandingTemplates\obj\Debug\TillidBrandingTemplates.dll
+C:\Users\devadmin\documents\visual studio 2012\Projects\RecruitPortalBranding\TillidBrandingTemplates\obj\Debug\TillidBrandingTemplates.pdb

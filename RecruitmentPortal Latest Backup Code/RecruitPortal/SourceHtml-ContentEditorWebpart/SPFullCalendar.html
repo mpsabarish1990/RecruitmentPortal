@@ -1,0 +1,216 @@
+
+
+<!--Modal Popup Starts here-->
+<div class="modal fade" id="modal-dialog-Appointment" role="dialog">
+    <div class="modal-dialog">
+        <button type="button" class="close" data-dismiss="modal">×</button>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4><span>10:05</span> - <span>10:25</span> New Event</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label col-sm-2">Email:</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" id="email" placeholder="Enter email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2">Password:</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" id="" placeholder="Enter password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2">Time:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="" placeholder="Enter text">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2">Date:</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" id="" placeholder="Enter password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2">Description:</label>
+                        <div class="col-sm-10">
+                            <textarea class="form-control" cols="3" rows="4"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <p class="submit text-right pright-15">
+                            <input type="button" class="btn btn-primary mleft-15 pull-left" value="Save" id="">
+                            <input type="button" class="btn btn-primary mleft-15 pull-left" data-dismiss="modal" value="Cancel" id="">
+                            <input type="button" class="btn btn-primary" value="Delete" id="">
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    @media (min-width: 768px) {
+        .modal-dialog {
+            width: 738px;
+        }
+    }
+
+    .modal-content {
+        border-radius: 0 0;
+    }
+
+    .modal-header {
+        padding: 0px 15px;
+    }
+
+        .modal-header h4 {
+            font-size: 13px;
+        }
+
+            .modal-header h4 span:last-child {
+                padding-right: 15px;
+            }
+
+    #test {
+        font-family: "Segoe UI",Arial;
+    }
+
+        #test input[type="text"], #test input[type="password"], #test input[type="email"] {
+            height: 25px;
+            font-size: 12px;
+            font-family: "Segoe UI",Arial;
+        }
+
+        #test textarea {
+            background-color: #F9F9F9;
+        }
+</style>
+
+
+<!--Modal Popup Ends here-->
+
+<!--<script type="text/javascript" src="//code.jquery.com/jquery-1.11.1.min.js"></script>-->
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
+<link type="text/css" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.css" />
+<div id='calendar'></div>
+<script type="text/javascript">
+
+        var PATH_TO_DISPFORM = "https://spworkshop.sharepoint.com/sites/innovationengine/Lists/Tasks/DispForm.aspx";
+    var TASK_LIST = "Tasks";
+
+    $(document).ready(function () {
+        DisplayTasks();
+
+        $('.fc-day').click(function () {
+
+            $('#modal-dialog-Appointment').modal('show');
+        });
+    });
+
+  
+
+   function DisplayTasks()
+   {
+            $('#calendar').fullCalendar('destroy');
+        $('#calendar').fullCalendar({
+
+            header: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'month,basicWeek,basicDay'
+        },
+        //open up the display form when a user clicks on an event
+        eventClick: function (calEvent, jsEvent, view) {
+            window.location = PATH_TO_DISPFORM + "?ID=" + calEvent.id;
+        },
+       	editable: true,
+        timezone: "UTC",
+        droppable: true, // this allows things to be dropped onto the calendar
+        //update the end date when a user drags and drops an event
+        eventDrop: function(event, delta, revertFunc) {
+            UpdateTask(event.id, event.end);
+        },
+        //put the events on the calendar
+        events: function (start, end, timezone, callback) {
+            startDate = start.format('YYYY-MM-DD');
+        endDate = end.format('YYYY-MM-DD');
+
+			var RESTQuery = "/_api/Web/Lists/GetByTitle('"+TASK_LIST+"')/items?$select=ID,Title,\
+				Status,StartDate,DueDate,AssignedTo/Title&$expand=AssignedTo&\
+				$filter=((DueDate ge '"+startDate+"' and DueDate le '"+endDate+"'))";
+
+			var opencall = $.ajax({
+            url: _spPageContextInfo.webAbsoluteUrl + RESTQuery,
+		    		type: "GET",
+		    		dataType: "json",
+		    		headers: {
+            Accept: "application/json;odata=verbose"
+		    		}
+		    });
+
+            opencall.done(function (data, textStatus, jqXHR) {
+			    	var events = [];
+		    		for (index in data.d.results)
+		    		{
+						var assignedTo = "";
+						for(person in data.d.results[index].AssignedTo.results)
+						{
+            assignedTo += data.d.results[index].AssignedTo.results[person].Title + " ";
+        }
+						events.push({
+            title: data.d.results[index].Title + " - " + assignedTo,
+									id: data.d.results[index].ID,
+                  color: "#c00000", //specify the background color and border color can also create a class and use className paramter.
+									start: moment.utc(data.d.results[index].StartDate),
+									end: moment.utc(data.d.results[index].DueDate).add("1","days") //add one day to end date so that calendar properly shows event ending on that day
+								});
+		    		}
+
+					callback(events);
+
+		    });
+		}
+	});
+}
+
+
+function UpdateTask(id,dueDate)
+{
+            //substract the previoulsy added day to the date to store correct date
+            sDate = moment.utc(dueDate).add("-1", "days").format('YYYY-MM-DD') + "T" +
+            dueDate.format("hh:mm") + ":00Z";
+
+        var call = jQuery.ajax({
+            url: _spPageContextInfo.webAbsoluteUrl +
+	            "/_api/Web/Lists/getByTitle('"+TASK_LIST+"')/Items(" + id + ")",
+	        type: "POST",
+	        data: JSON.stringify({
+            DueDate: sDate,
+	        }),
+	        headers: {
+            Accept: "application/json;odata=nometadata",
+	            "Content-Type": "application/json;odata=nometadata",
+	            "X-RequestDigest": jQuery("#__REQUESTDIGEST").val(),
+	            "IF-MATCH": "*",
+	            "X-Http-Method": "PATCH"
+	        }
+        });
+        call.done(function (data, textStatus, jqXHR) {
+            alert("Update Successful");
+        DisplayTasks();
+        });
+        call.fail(function (jqXHR, textStatus, errorThrown) {
+            alert("Update Failed");
+        DisplayTasks();
+        });
+
+}
+
+  //  $('#modal-dialog-Appointment').modal('show');
+
+</script>

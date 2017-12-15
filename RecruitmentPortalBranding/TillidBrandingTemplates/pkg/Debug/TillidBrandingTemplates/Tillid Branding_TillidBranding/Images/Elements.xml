@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="Images" Url="_catalogs/masterpage/TillidSoft">
+    <File Path="Images\appointment.png" Url="Images/appointment.png" Type="GhostableInLibrary"  ReplaceContent="TRUE"/>
+    <File Path="Images\assetmanagemtn.png" Url="Images/assetmanagemtn.png" Type="GhostableInLibrary"  ReplaceContent="TRUE"/>
+    <File Path="Images\delete.jpg" Url="Images/delete.jpg" Type="GhostableInLibrary"  ReplaceContent="TRUE" />
+    <File Path="Images\edit.jpg" Url="Images/edit.jpg" Type="GhostableInLibrary"  ReplaceContent="TRUE"/>
+    <File Path="Images\employee.png" Url="Images/employee.png" Type="GhostableInLibrary"  ReplaceContent="TRUE" />
+    <File Path="Images\feedback.png" Url="Images/feedback.png" Type="GhostableInLibrary"  ReplaceContent="TRUE"/>
+    <File Path="Images\finance.png" Url="Images/finance.png" Type="GhostableInLibrary"  ReplaceContent="TRUE"/>
+    <File Path="Images\first.png" Url="Images/first.png" Type="GhostableInLibrary"  ReplaceContent="TRUE"/>
+    <File Path="Images\hr Copy.png" Url="Images/hr Copy.png" Type="GhostableInLibrary"  ReplaceContent="TRUE"/>
+    <File Path="Images\hr.png" Url="Images/hr.png" Type="GhostableInLibrary"  ReplaceContent="TRUE" />
+    <File Path="Images\last.png" Url="Images/last.png" Type="GhostableInLibrary"  ReplaceContent="TRUE"/>
+    <File Path="Images\leavebox.png" Url="Images/leavebox.png" Type="GhostableInLibrary"  ReplaceContent="TRUE"/>
+    <File Path="Images\logo.png" Url="Images/logo.png" Type="GhostableInLibrary"  ReplaceContent="TRUE" />
+    <File Path="Images\logo.svg" Url="Images/logo.svg" Type="GhostableInLibrary"  ReplaceContent="TRUE"/>
+    <File Path="Images\next.png" Url="Images/next.png" Type="GhostableInLibrary"  ReplaceContent="TRUE"/>
+    <File Path="Images\offer.png" Url="Images/offer.png" Type="GhostableInLibrary"  ReplaceContent="TRUE" />
+    <File Path="Images\options.png" Url="Images/options.png" Type="GhostableInLibrary"  ReplaceContent="TRUE" />
+    <File Path="Images\previous.png" Url="Images/previous.png" Type="GhostableInLibrary"  ReplaceContent="TRUE"/>
+    <File Path="Images\radio-checked.jpg" Url="Images/radio-checked.jpg" Type="GhostableInLibrary"  ReplaceContent="TRUE"/>
+    <File Path="Images\radio-unchecked.jpg" Url="Images/radio-unchecked.jpg" Type="GhostableInLibrary"  ReplaceContent="TRUE"/>
+    <File Path="Images\skils.png" Url="Images/skils.png" Type="GhostableInLibrary"  ReplaceContent="TRUE"/>
+  </Module>
+</Elements>

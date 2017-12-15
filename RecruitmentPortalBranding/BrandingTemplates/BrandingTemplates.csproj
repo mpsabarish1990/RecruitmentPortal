@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C924F35B-E3B0-4538-838F-FEF4F9801EB8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BrandingTemplates</RootNamespace>
+    <AssemblyName>BrandingTemplates</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetOfficeVersion>15.0</TargetOfficeVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{C1CDDADD-2546-481F-9697-4EA41081F2FC};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SandboxedSolution>False</SandboxedSolution>
+    <ActiveDeploymentConfiguration>No Activation</ActiveDeploymentConfiguration>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.SharePoint" />
+    <Reference Include="Microsoft.SharePoint.Client.ServerRuntime" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Features\ActivateCustomMaster\ActivateCustomMaster.EventReceiver.cs">
+      <DependentUpon>ActivateCustomMaster.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\SetUpMasterPage\SetUpMasterPage.EventReceiver.cs">
+      <DependentUpon>SetUpMasterPage.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Features\ActivateCustomMaster\ActivateCustomMaster.feature">
+      <FeatureId>{318bc830-35ef-4b97-b638-6f9bc0c34fd4}</FeatureId>
+    </None>
+    <None Include="Features\SetUpMasterPage\SetUpMasterPage.feature">
+      <FeatureId>{2e7b7294-7421-4f65-8428-53e7cf811f69}</FeatureId>
+    </None>
+    <None Include="Features\RecruitmentPortalFeature\RecruitmentPortalFeature.feature">
+      <FeatureId>{37c1eb86-4df3-43a2-a0d7-1ceb39beefef}</FeatureId>
+    </None>
+    <None Include="key.snk" />
+    <None Include="Layouts\BrandingTemplates\fonts\glyphicons-halflings-regular.eot" />
+    <None Include="Layouts\BrandingTemplates\fonts\glyphicons-halflings-regular.ttf" />
+    <None Include="Layouts\BrandingTemplates\fonts\glyphicons-halflings-regular.woff" />
+    <None Include="Layouts\BrandingTemplates\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="Layouts\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{4122175b-413c-4369-9a0d-e5c926ec92f0}</SharePointProjectItemId>
+    </None>
+    <None Include="CustomMasterPages\MasterPage\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{b2fffa4c-eba2-4657-8ecf-66998ab6396f}</SharePointProjectItemId>
+    </None>
+    <None Include="Package\Package.package">
+      <PackageId>{74c14d0f-f873-4e72-b4b5-2517cea1ecee}</PackageId>
+    </None>
+    <None Include="Package\Package.Template.xml">
+      <DependentUpon>Package.package</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Features\ActivateCustomMaster\ActivateCustomMaster.Template.xml">
+      <DependentUpon>ActivateCustomMaster.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\SetUpMasterPage\SetUpMasterPage.Template.xml">
+      <DependentUpon>SetUpMasterPage.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\RecruitmentPortalFeature\RecruitmentPortalFeature.Template.xml">
+      <DependentUpon>RecruitmentPortalFeature.feature</DependentUpon>
+    </Content>
+    <Content Include="Layouts\BrandingTemplates\css\bootstrap-datepicker.min.css" />
+    <Content Include="Layouts\BrandingTemplates\css\bootstrap-datetimepicker.css" />
+    <Content Include="Layouts\BrandingTemplates\css\bootstrap.min.css" />
+    <Content Include="Layouts\BrandingTemplates\css\jquery-ui.css" />
+    <Content Include="Layouts\BrandingTemplates\css\main.css" />
+    <Content Include="Layouts\BrandingTemplates\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Layouts\BrandingTemplates\images\appointment.png" />
+    <Content Include="Layouts\BrandingTemplates\images\assetmanagemtn.png" />
+    <Content Include="Layouts\BrandingTemplates\images\delete.jpg" />
+    <Content Include="Layouts\BrandingTemplates\images\edit.jpg" />
+    <Content Include="Layouts\BrandingTemplates\images\employee.png" />
+    <Content Include="Layouts\BrandingTemplates\images\feedback.png" />
+    <Content Include="Layouts\BrandingTemplates\images\finance.png" />
+    <Content Include="Layouts\BrandingTemplates\images\first.png" />
+    <Content Include="Layouts\BrandingTemplates\images\hr Copy.png" />
+    <Content Include="Layouts\BrandingTemplates\images\hr.png" />
+    <Content Include="Layouts\BrandingTemplates\images\last.png" />
+    <Content Include="Layouts\BrandingTemplates\images\leavebox.png" />
+    <Content Include="Layouts\BrandingTemplates\images\logo.png" />
+    <Content Include="Layouts\BrandingTemplates\images\logo.svg" />
+    <Content Include="Layouts\BrandingTemplates\images\next.png" />
+    <Content Include="Layouts\BrandingTemplates\images\offer.png" />
+    <Content Include="Layouts\BrandingTemplates\images\options.png" />
+    <Content Include="Layouts\BrandingTemplates\images\previous.png" />
+    <Content Include="Layouts\BrandingTemplates\images\radio-checked.jpg" />
+    <Content Include="Layouts\BrandingTemplates\images\radio-unchecked.jpg" />
+    <Content Include="Layouts\BrandingTemplates\images\skils.png" />
+    <Content Include="Layouts\BrandingTemplates\js\bootstrap-datepicker.min.js" />
+    <Content Include="Layouts\BrandingTemplates\js\bootstrap-datetimepicker_2.3.10.js" />
+    <Content Include="Layouts\BrandingTemplates\js\bootstrap.min.js" />
+    <Content Include="Layouts\BrandingTemplates\js\common.js" />
+    <Content Include="Layouts\BrandingTemplates\js\jquery-1.12.4.js" />
+    <Content Include="Layouts\BrandingTemplates\js\jquery-ui.js" />
+    <Content Include="Layouts\BrandingTemplates\js\main.js" />
+    <Content Include="Layouts\BrandingTemplates\js\moment.min.js" />
+    <Content Include="CustomMasterPages\MasterPage\Elements.xml" />
+    <Content Include="CustomMasterPages\MasterPage\Branding Files\RecruitmentPortal.html" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0'">11.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" Condition="'$(VSToolsPath)' != ''" />
+</Project>

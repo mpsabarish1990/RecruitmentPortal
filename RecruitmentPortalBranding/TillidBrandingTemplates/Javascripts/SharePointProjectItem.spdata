@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProjectItem Type="Microsoft.VisualStudio.SharePoint.Module" DefaultFile="Elements.xml" SupportedTrustLevels="All" SupportedDeploymentScopes="Web, Site" xmlns="http://schemas.microsoft.com/VisualStudio/2010/SharePointTools/SharePointProjectItemModel">
+  <Files>
+    <ProjectItemFile Source="Elements.xml" Target="Javascripts\" Type="ElementManifest" />
+    <ProjectItemFile Source="bootstrap-datepicker.min.js" Target="Javascripts\" Type="ElementFile" />
+    <ProjectItemFile Source="bootstrap-datetimepicker-2.3.10.js" Target="Javascripts\" Type="ElementFile" />
+    <ProjectItemFile Source="bootstrap.min.js" Target="Javascripts\" Type="ElementFile" />
+    <ProjectItemFile Source="common.js" Target="Javascripts\" Type="ElementFile" />
+    <ProjectItemFile Source="jquery-1.12.4.js" Target="Javascripts\" Type="ElementFile" />
+    <ProjectItemFile Source="jquery-ui.js" Target="Javascripts\" Type="ElementFile" />
+    <ProjectItemFile Source="main.js" Target="Javascripts\" Type="ElementFile" />
+    <ProjectItemFile Source="moment.min.js" Target="Javascripts\" Type="ElementFile" />
+  </Files>
+</ProjectItem>

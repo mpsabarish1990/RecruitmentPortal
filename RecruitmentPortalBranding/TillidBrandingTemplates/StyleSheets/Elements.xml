@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="StyleSheets" Url="_catalogs/masterpage/TillidSoft">
+    <File Path="StyleSheets\bootstrap-datepicker.min.css" Url="StyleSheets/bootstrap-datepicker.min.css"  Type="GhostableInLibrary" ReplaceContent="TRUE"/>
+    <File Path="StyleSheets\bootstrap-datetimepicker.css" Url="StyleSheets/bootstrap-datetimepicker.css"  Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="StyleSheets\bootstrap.min.css" Url="StyleSheets/bootstrap.min.css"  Type="GhostableInLibrary" ReplaceContent="TRUE"/>
+    <File Path="StyleSheets\jquery-ui.css" Url="StyleSheets/jquery-ui.css"  Type="GhostableInLibrary" ReplaceContent="TRUE"/>
+    <File Path="StyleSheets\main.css" Url="StyleSheets/main.css"  Type="GhostableInLibrary" ReplaceContent="TRUE"/>
+  </Module>
+</Elements>

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Solution xmlns="http://schemas.microsoft.com/sharepoint/" SolutionId="faf6d8c2-fb53-403b-a929-683a1ea5a444" SharePointProductVersion="15.0">
+  <Assemblies>
+    <Assembly Location="DevBrandingTemplates.dll" DeploymentTarget="GlobalAssemblyCache" />
+  </Assemblies>
+  <FeatureManifests>
+    <FeatureManifest Location="DevBrandingTemplates_TillidBrandingTemplate\Feature.xml" />
+  </FeatureManifests>
+</Solution>

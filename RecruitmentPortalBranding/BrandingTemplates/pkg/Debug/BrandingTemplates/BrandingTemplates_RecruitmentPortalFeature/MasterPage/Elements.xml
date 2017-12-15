@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="MasterPage" Url="_catalogs/masterpage" List="116" Path="MasterPage">
+ 
+    <File Url="Branding Files/RecruitmentPortal.html" Type="GhostableInLibrary" ReplaceContent="TRUE" Level="Published"/>
+    
+  </Module>
+</Elements>

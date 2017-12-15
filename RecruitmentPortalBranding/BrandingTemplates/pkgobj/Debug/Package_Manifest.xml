@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Solution xmlns="http://schemas.microsoft.com/sharepoint/" SolutionId="74c14d0f-f873-4e72-b4b5-2517cea1ecee" SharePointProductVersion="15.0">
+  <Assemblies>
+    <Assembly Location="BrandingTemplates.dll" DeploymentTarget="GlobalAssemblyCache" />
+  </Assemblies>
+  <TemplateFiles>
+    <TemplateFile Location="Layouts\BrandingTemplates\fonts\glyphicons-halflings-regular.eot" />
+    <TemplateFile Location="Layouts\BrandingTemplates\fonts\glyphicons-halflings-regular.ttf" />
+    <TemplateFile Location="Layouts\BrandingTemplates\fonts\glyphicons-halflings-regular.woff" />
+    <TemplateFile Location="Layouts\BrandingTemplates\fonts\glyphicons-halflings-regular.woff2" />
+    <TemplateFile Location="Layouts\BrandingTemplates\css\bootstrap-datepicker.min.css" />
+    <TemplateFile Location="Layouts\BrandingTemplates\css\bootstrap-datetimepicker.css" />
+    <TemplateFile Location="Layouts\BrandingTemplates\css\bootstrap.min.css" />
+    <TemplateFile Location="Layouts\BrandingTemplates\css\jquery-ui.css" />
+    <TemplateFile Location="Layouts\BrandingTemplates\css\main.css" />
+    <TemplateFile Location="Layouts\BrandingTemplates\fonts\glyphicons-halflings-regular.svg" />
+    <TemplateFile Location="Layouts\BrandingTemplates\images\appointment.png" />
+    <TemplateFile Location="Layouts\BrandingTemplates\images\assetmanagemtn.png" />
+    <TemplateFile Location="Layouts\BrandingTemplates\images\delete.jpg" />
+    <TemplateFile Location="Layouts\BrandingTemplates\images\edit.jpg" />
+    <TemplateFile Location="Layouts\BrandingTemplates\images\employee.png" />
+    <TemplateFile Location="Layouts\BrandingTemplates\images\feedback.png" />
+    <TemplateFile Location="Layouts\BrandingTemplates\images\finance.png" />
+    <TemplateFile Location="Layouts\BrandingTemplates\images\first.png" />
+    <TemplateFile Location="Layouts\BrandingTemplates\images\hr Copy.png" />
+    <TemplateFile Location="Layouts\BrandingTemplates\images\hr.png" />
+    <TemplateFile Location="Layouts\BrandingTemplates\images\last.png" />
+    <TemplateFile Location="Layouts\BrandingTemplates\images\leavebox.png" />
+    <TemplateFile Location="Layouts\BrandingTemplates\images\logo.png" />
+    <TemplateFile Location="Layouts\BrandingTemplates\images\logo.svg" />
+    <TemplateFile Location="Layouts\BrandingTemplates\images\next.png" />
+    <TemplateFile Location="Layouts\BrandingTemplates\images\offer.png" />
+    <TemplateFile Location="Layouts\BrandingTemplates\images\options.png" />
+    <TemplateFile Location="Layouts\BrandingTemplates\images\previous.png" />
+    <TemplateFile Location="Layouts\BrandingTemplates\images\radio-checked.jpg" />
+    <TemplateFile Location="Layouts\BrandingTemplates\images\radio-unchecked.jpg" />
+    <TemplateFile Location="Layouts\BrandingTemplates\images\skils.png" />
+    <TemplateFile Location="Layouts\BrandingTemplates\js\bootstrap-datepicker.min.js" />
+    <TemplateFile Location="Layouts\BrandingTemplates\js\bootstrap-datetimepicker_2.3.10.js" />
+    <TemplateFile Location="Layouts\BrandingTemplates\js\bootstrap.min.js" />
+    <TemplateFile Location="Layouts\BrandingTemplates\js\common.js" />
+    <TemplateFile Location="Layouts\BrandingTemplates\js\jquery-1.12.4.js" />
+    <TemplateFile Location="Layouts\BrandingTemplates\js\jquery-ui.js" />
+    <TemplateFile Location="Layouts\BrandingTemplates\js\main.js" />
+    <TemplateFile Location="Layouts\BrandingTemplates\js\moment.min.js" />
+  </TemplateFiles>
+  <FeatureManifests>
+    <FeatureManifest Location="BrandingTemplates_RecruitmentPortalFeature\Feature.xml" />
+    <FeatureManifest Location="BrandingTemplates_SetUpMasterPage\Feature.xml" />
+    <FeatureManifest Location="BrandingTemplates_ActivateCustomMaster\Feature.xml" />
+  </FeatureManifests>
+</Solution>

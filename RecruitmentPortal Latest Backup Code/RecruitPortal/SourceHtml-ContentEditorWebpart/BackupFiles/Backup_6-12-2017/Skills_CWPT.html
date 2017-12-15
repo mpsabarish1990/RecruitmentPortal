@@ -1,0 +1,538 @@
+﻿<h2 class="title_hr">HR</h2>
+				<h3 class="subhead_skills">Skills</h3>
+				<div class="form_cover toggleclass">
+					<!--1st Row-->	
+					<div class="row">
+						<div class="col-md-6">
+							<div class="row">
+								<!--<div class="col-md-4">
+									<div class="form-group">
+										<label>Skill ID *</label>								
+										 <input type="text" id="txtSkillID" class="form-control" />
+									</div>
+								</div>-->
+								<div class="col-md-4">
+									<div class="form-group">
+										<label>Skill Name *</label>								
+										 <input type="text" id="txtSkillName" class="form-control" />
+									</div>
+								</div>
+								<div class="col-md-4">
+									<label>Active</label>	
+									<div class="form-group">							
+										<label class="radio-inline radiobg"><input type="radio" class="rodActive" id="rodActiveYes" name="optradio1" value="Yes" />Yes</label>
+										<label class="radio-inline radiobg"><input type="radio" class="rodActive" id="rodActiveNo"  name="optradio1" value="No" />No</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!--2nd Row-->
+					<div class="row">
+						<div class="col-md-5">
+							<div class="form-group">
+								<label>Skill Desc *</label>								
+								 <input type="text" id="txtSkillDescription" class="form-control" />
+							</div>
+						</div>
+					</div>	
+					
+					<!--Submit Area-->
+					<p class="submit">
+						<a class="btn btn-primary"  id="btnclear">Clear</a>&nbsp;
+						<a class="btn btn-primary toggleclick"  id="btnsave">Update</a>&nbsp;
+						<a class="btn btn-primary toggleclick" id="btncancel">Cancel</a>
+					</p>
+				</div>
+				<!--5th Row-->
+				<div class="table-responsive mtop-30">
+					<table class="skiltab table table-bordered paginated">
+						<thead>
+							<tr>
+								<th>Skill ID</th>
+								<th>Skill Name</th>
+								<th>Active</th>
+								<th>Skill Description</th>
+								<th class="text-center">Edit</th>
+								<th class="text-center">Delete</th>
+        <th style="display:none"></th>
+							</tr>
+						</thead>
+						<tbody id="Skillsbody">
+							
+						</tbody>
+					</table>		
+				</div>	
+				
+				 <p class="submit text-right pright-5"><input type="button" class="btn btn-primary addrow toggleclick" value="+ Add Skills"  id="bntAddRow"></p>
+
+				
+
+<script src="/SiteAssets/RecruitmentPortal/js/common.js"></script>
+<script>
+
+    var ListName = "Skills";
+    var listInternalNameItem = "SP.Data.SkillsListItem";
+    var SkillName = "";
+    var SkillID="";
+    var SkillDescription="";
+    var Active="";
+    var EditItemId = "";
+    var DeleteItemId = "";
+    var configuration_value = 3;
+
+    jQuery(document).ready(function () {
+        configuration_value = GetConfigurationitem("Pagination Count", "Skills");
+        GetSkillsList();
+
+        $("#btnsave").click(function()
+        {
+            AddSkillItems();
+
+            if (validateForm()) {
+
+                if (EditItemId != "") {
+
+                    EditSkillEntry();
+                }
+                else {
+
+                    BindSkillEntry();
+                }
+            }
+            else {
+                alert("Please Enter all the required fields")
+            }
+      
+            GetSkillsList();
+        });
+
+        $("#btnclear").click(function () {
+
+            Cleartextentry();
+        });
+
+           
+
+        $("#bntAddRow").click(function () {
+            if (EditItemId != "") {
+                Cleartextentry();
+                $("#btnsave").html("Save");
+                EditItemId = "";
+            }
+            else {
+                Cleartextentry();
+                $("#btnsave").html("Save");
+            }
+        });
+       
+    });
+
+    //*********** Below function is to create new Items in Skill List ***********//
+
+    function AddSkillItems() {
+        SkillName = $("#txtSkillName").val();
+       // SkillID = $("#txtSkillID").val();
+        SkillDescription = $("#txtSkillDescription").val();
+        $('.rodActive').each(function () {
+            if ($(this).is(':checked')) {
+                if ($(this).attr('value') == "Yes") {
+                    Active = "Yes";
+                }
+                else {
+                    Active = "No";
+                }
+
+            }
+        });
+       
+    }
+
+    //*********** Below function is to Retrieve items from Skill List ***********//
+
+    function GetSkillsList() {
+
+        $("#divpagination").remove();
+        var Skillhtml = "";
+        var requestUri = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getByTitle('" + ListName + "')/items?$select=ID,Title,Skill_x0020_ID,Skill_x0020_Description,Active";
+        $.ajax(
+                {
+                    url: requestUri,
+                    async: false,
+                    type: "GET",
+                    headers: { "Accept": "application/json; odata=verbose" },
+                    success: function (data) {
+                        if (data.d.results) {
+                            console.log(data.d.results);
+                            if (data.d.results.length > 0) {
+                                for (var i = 0; i < data.d.results.length; i++) {
+
+                                    boolpageCount_OnPageLoad = true;
+                                    $('.pagination').show();
+                                    $(".skiltab").show();
+
+
+                                    var SkillID_Empty = data.d.results[i].Skill_x0020_ID != null ? data.d.results[i].Skill_x0020_ID : "";
+                                    var Title_Empty = data.d.results[i].Title != null ? data.d.results[i].Title : "";
+                                    //var Active_Empty = data.d.results[i].Active != null ? data.d.results[i].Active : "";
+                                    var SkillDescription_Empty = data.d.results[i].Skill_x0020_Description != null ? data.d.results[i].Skill_x0020_Description : "";
+
+                                    Skillhtml += '<tr>';
+                                    Skillhtml += '	<td>' + SkillID_Empty + '</td>     ';
+                                    Skillhtml += '	<td>' + Title_Empty + '</td>   ';
+                                    Skillhtml += '	<td>' + data.d.results[i].Active + '</td>        ';
+                                    Skillhtml += '	<td>' + SkillDescription_Empty + '</td> ';
+
+                                    Skillhtml += ' <td align="center"><span class="recicon editicon toggleclick"><input type="checkbox" name="editrec" class="editrec" id="btnEdit"></span></td>';
+                                    Skillhtml += ' <td align="center"><span class="recicon deleteicon"><input type="checkbox" name="dleterec" class="dleterec"></span></td>        ';
+                                    Skillhtml += '<td style="display:none">' + data.d.results[i].ID + '</td>';
+                                    Skillhtml += ' </tr>';
+                                }
+                                $("#Skillsbody").html(Skillhtml);
+
+                                $(".dleterec").click(function () {
+                                    alert('Are you sure want to delete this record?');
+                                    DeleteItemId = $(this).closest("tr").find("td:last").text();
+                                    DeleteSkillItem();
+
+                                });
+
+                                $(".editrec").click(function () {
+                                    EditItemId = $(this).closest("tr").find("td:last").text();
+                                    EditSkillItem();
+                                    Bind_Functions();
+                                    $("#btnsave").click(function () {
+                                        AddSkillItems();
+
+                                        if (validateForm()) {
+
+                                            if (EditItemId != "") {
+
+                                                EditSkillEntry();
+                                            }
+                                            else {
+
+                                                BindSkillEntry();
+                                            }
+                                        }
+
+                                        else {
+                                            alert("Please Enter all the required fields")
+                                        }
+                                        GetSkillsList();
+                                    });
+
+                                    $("#btnclear").click(function () {
+
+                                        Cleartextentry();
+                                    });
+
+
+
+                                    $("#bntAddRow").click(function () {
+                                        if (EditItemId != "") {
+                                            Cleartextentry();
+                                            $("#btnsave").html("Save");
+                                            EditItemId = "";
+                                        }
+                                        else {
+                                            Cleartextentry();
+                                            $("#btnsave").html("Save");
+                                        }
+                                    });
+
+                                });
+
+                                //*********** Below function is for pagination***********//
+
+                                $('table.paginated').each(function () {
+                                    var currentPage = 0;
+                                    var numPerPage = configuration_value;
+                                    var $table = $(this);
+                                    $table.bind('repaginate', function () {
+                                        $table.find('tbody tr').hide().slice(currentPage * numPerPage, (currentPage + 1) * numPerPage).show();
+                                    });
+                                    $table.trigger('repaginate');
+                                    var numRows = $table.find('tbody tr').length;
+                                    var numPages = Math.ceil(numRows / numPerPage);
+                                    var $pager = $('<div class="pagination" id="divpagination"></div>');
+                                    var $previous = $('<span class="previous"><<</spnan>');
+                                    var $next = $('<span class="next"></spnan>');
+                                    for (var page = 0; page < numPages; page++) {
+                                        $('<span class="page-number"></span>').text(page + 1).bind('click', {
+                                            newPage: page
+                                        }, function (event) {
+                                            currentPage = event.data['newPage'];
+                                            $table.trigger('repaginate');
+                                            $(this).addClass('active').siblings().removeClass('active');
+                                        }).appendTo($pager).addClass('clickable');
+                                    }
+                                    $pager.insertAfter($table).find('span.page-number:first').addClass('active');
+                                    $previous.insertBefore('span.page-number:first');
+                                    $next.insertAfter('span.page-number:last');
+
+                                    $next.click(function (e) {
+                                        $previous.addClass('clickable');
+                                        $pager.find('.active').next('.page-number.clickable').click();
+                                    });
+                                    $previous.click(function (e) {
+                                        $next.addClass('clickable');
+                                        $pager.find('.active').prev('.page-number.clickable').click();
+                                    });
+                                    $table.on('repaginate', function () {
+                                        $next.addClass('clickable');
+                                        $previous.addClass('clickable');
+
+                                        setTimeout(function () {
+                                            var $active = $pager.find('.page-number.active');
+                                            if ($active.next('.page-number.clickable').length === 0) {
+                                                $next.removeClass('clickable');
+                                            } else if ($active.prev('.page-number.clickable').length === 0) {
+                                                $previous.removeClass('clickable');
+                                            }
+                                            $('.table-responsive').hide();
+                                            $('.table-responsive').show(1000);
+                                        });
+                                    });
+                                    $table.trigger('repaginate');
+                                    $table.trigger('repaginate');
+                                    if (!boolpageCount_OnPageLoad) {
+                                        $('.pagination').hide();
+                                    }
+                                });
+
+                            }
+                            else {
+                                $(".skiltab").css("display", "none");
+                            }
+                        }
+                    },
+                    error: function () {
+                        //alert("error");
+                        console.log("List Item Error Message: " + JSON.stringify(err));
+                    }
+                });
+    }
+
+    //*********** Below function is to Edit Items in Skill List ***********//
+
+    function EditSkillEntry() {
+        var requestUri = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getByTitle('" + ListName + "')/items(" + EditItemId + ")";
+        var Header_Body = {
+            "Accept": "application/json;odata=verbose",
+            "content-type": "application/json; odata=verbose",
+            "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+            "X-HTTP-Method": "MERGE",
+            "If-Match": "*"
+        }
+        $.ajax(
+                {
+                    url: requestUri,
+                    async: false,
+                    type: "POST",
+                    data: JSON.stringify({
+                        '__metadata': { 'type': listInternalNameItem },
+                        'Title': SkillName,
+                        //'Skill_x0020_ID': SkillID,
+                        'Skill_x0020_Description': SkillDescription,
+                        'Active': Active,
+                        
+                    }),
+                    headers: Header_Body,
+                    success: function (data) {
+                        alert("Your Data Added Successfully");
+                        //alert(data.d.Id); 
+                    },
+                    error: function (err) {
+                        alert("Candidate List Item Error Message: " + JSON.stringify(err));
+                        console.log("Candidate List Item Error Message: " + JSON.stringify(err));
+                    }
+                });
+    }
+
+    //*********** Below function is to Saving Edited Items in Skill List to Edit ***********//
+
+    function EditSkillItem() {
+        $("#btnsave").html("Update");
+        var requestUri = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/GetByTitle('" + ListName + "')/items(" + EditItemId + ")?$select=ID,Title,Skill_x0020_ID,Skill_x0020_Description,Active";
+        $.ajax(
+                   {
+                       url: requestUri,
+                       async: false,
+                       type: "GET",
+                       headers: { "Accept": "application/json; odata=verbose" },
+                       success: function (data) {
+                           if (data.d) {
+                               console.log(data.d);
+                               
+
+                               $("#txtSkillName").val(data.d.Title);
+                               //$("#txtSkillID").val(data.d.Skill_x0020_ID);
+                               //$("#txtSkillDescription").val(data.d.Skill_x0020_Description).text();
+                               var ShowSkillDescription = $(data.d.Skill_x0020_Description).text();
+                               $("#txtSkillDescription").val(ShowSkillDescription);
+                               if (data.d.Active == "Yes") {
+                                   $(".rodActive:eq(0)").attr("checked", true);
+                                   
+                                   $("#rodActiveYes").parent().addClass("checked");
+                               }
+                               else {
+                                   $(".rodActive:eq(1)").attr("checked", true);
+                                   
+                                   $("#rodActiveNo").parent().addClass("checked");
+                               }
+                              
+
+                           }
+
+                       },
+                       error: function () {
+                           alert("error");
+                           console.log("List Item Error Message: " + JSON.stringify(err));
+                       }
+                   });
+
+    }
+
+    //*********** Below function is to Binding the Items in Skill List ***********//
+
+    function BindSkillEntry() {
+        var requestUri = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getByTitle('" + ListName + "')/items";
+        var Header_Body = {
+            "Accept": "application/json;odata=verbose",
+            "content-type": "application/json; odata=verbose",
+            "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+            //"X-HTTP-Method": "MERGE",
+            //"If-Match": "*"
+        }
+        $.ajax(
+                {
+                    url: requestUri,
+                    async: false,
+                    type: "POST",
+                    data: JSON.stringify({
+                        '__metadata': { 'type': listInternalNameItem },
+                        'Title': SkillName,
+                        //'Skill_x0020_ID': SkillID,
+                        'Skill_x0020_Description': SkillDescription,
+                        'Active': Active,
+
+                    }),
+                    headers: Header_Body,
+                    success: function (data) {
+                        alert(data.d.Id);
+                    },
+                    error: function (err) {
+                        alert("Candidate List Item Error Message: " + JSON.stringify(err));
+                        console.log("Candidate List Item Error Message: " + JSON.stringify(err));
+                    }
+                });
+    }
+       
+    //*********** Below function is to Delete the Items in Skill List  ***********//
+
+    function DeleteSkillItem() {
+        var restUrl = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/GetByTitle('" + ListName + "')/items(" + DeleteItemId + ")";
+        jQuery.ajax({
+            url: restUrl,
+            type: "POST",
+            headers: {
+                Accept: "application/json;odata=verbose",
+                "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+                "IF-MATCH": "*",
+                "X-HTTP-Method": "DELETE"
+            },
+            success: function (data, status, xhr) {
+                GetSkillsList();
+            },
+        });
+    }
+
+    //*********** Below function is to Clear the fields in Skill List  ***********//
+
+    function Cleartextentry() {
+
+        $("#txtSkillName").val('');
+       // $("#txtSkillID").val('');
+        $("#txtSkillDescription").val('');
+        
+                      
+    }
+
+    //*********** Below function is to validate the Form ***********//
+
+    function validateForm() {
+
+        var Title_Validate = $("#txtSkillName").val();
+        //var SkillID_Validate = $("#txtSkillID").val();
+        var SkillDescription_validate = $("#txtSkillDescription").val();
+        
+        if (Title_Validate == "") {
+            return false;
+        }
+        //else if (SkillID_Validate == "") {
+        //    return false;
+        //}
+        else if (SkillDescription_validate == "") {
+            return false;
+        }
+                      
+        return true;
+    }
+    function Bind_Functions() {
+
+        $(function () {
+            // run the currently selected effect
+            function runEffect() {
+                // get effect type from
+                var selectedEffect = "blind";
+                // Most effect types need no options passed by default
+                var options = {};
+                // some effects have required parameters
+                if (selectedEffect === "scale") {
+                    options = { percent: 100 };
+                } else if (selectedEffect === "size") {
+                    options = { to: { width: 100, height: 100 } };
+                }
+
+                // Run the effect
+                $(".toggleclass").toggle(selectedEffect, options, 500);
+            };
+
+            // Set effect from select menu value
+
+            $(".toggleclick").unbind();
+            $(".toggleclick").bind("click", function () {
+                runEffect();
+                var getDisval = $('.addrow.toggleclick').prop('disabled');
+                if (getDisval == false) {
+                    $('.addrow.toggleclick').prop('disabled', true);
+                    $('.editrec').prop('disabled', true);
+                    $('.table-responsive').addClass('mtop-30');
+                }
+                else {
+                    $('.addrow.toggleclick').prop('disabled', false);
+                    $('.editrec').prop('disabled', false);
+                    $('.table-responsive').removeClass('mtop-30');
+                }
+
+            });
+
+            /*Radio Button Style Starts Here*/
+            $('.radiobg input').click(function () {
+                //debugger;
+                if ($('.radiobg input').is(':checked')) {
+                    //$(event.target).parents().eq(3);
+                    $(event.target).parents().eq(3).find('input[type="radio"]').parent().removeClass('checked');
+                    $(this).parent().addClass('checked');
+                }
+            });
+            /*Radio Button Style Ends Here*/
+
+
+        });
+    }
+
+</script>
+

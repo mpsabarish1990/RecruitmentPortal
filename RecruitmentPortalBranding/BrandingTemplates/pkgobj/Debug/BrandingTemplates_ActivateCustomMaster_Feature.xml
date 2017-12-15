@@ -1,0 +1,2 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Feature xmlns="http://schemas.microsoft.com/sharepoint/" Id="9fe69442-e65d-43fc-8a75-1018b0f77b88" ReceiverAssembly="BrandingTemplates, Version=1.0.0.0, Culture=neutral, PublicKeyToken=2152154d6448babb" ReceiverClass="BrandingTemplates.Features.ActivateCustomMaster.ActivateCustomMasterEventReceiver" Scope="Site" Title="To Activate Custom Master Page"></Feature>

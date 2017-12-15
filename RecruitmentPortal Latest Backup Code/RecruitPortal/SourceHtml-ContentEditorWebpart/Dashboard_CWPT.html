@@ -1,0 +1,196 @@
+﻿<script src="/SiteAssets/RecruitmentPortal/js/common.js"></script>
+<h2 class="title_hr">HR</h2>
+				<h3 class="subhead_skills">Dashboard</h3>
+<!--5th Row-->
+				<div class="table-responsive mtop-30">
+					<table class="skiltab table table-bordered paginated">
+						<thead>
+							<tr>
+								<th>Appointment ID</th>
+								<th>Appointment Status</th>
+                                <th>Appointment Stage</th>
+								<th>Candidate ID</th>
+								<th>Candidate Name</th>
+                                <th>Role</th>
+                                <th>Interviewer Name</th>
+                                <th>Interview Type</th>
+							<!--	<th class="text-center">Edit</th>
+								<th class="text-center">Delete</th>
+        -->
+							</tr>
+						</thead>
+						<tbody id="Dashboardbody">
+							
+						</tbody>
+					</table>		
+				</div>	
+				
+				<!-- <p class="submit text-right pright-5"><input type="button" class="btn btn-primary addrow toggleclick" value="+ Add Skills"  id="bntAddRow"></p>-->
+
+<script>
+    var listDisplayName = "Appointments";
+    
+    jQuery(document).ready(function () {
+        GetAppointmentDetails();
+    });
+    function GetAppointmentDetails() {
+        var dashboardhtml = "";
+        var requestUri = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getByTitle('" + listDisplayName + "')/items?$select=ID,Candidate_x0020_ID/Id,Candidate_x0020_ID/Candidate_x0020_ID,Appointment_x0020_ID,Status,Stage,Role,Interviewers/Id,Interviewers/Title,Interview&$expand=Candidate_x0020_ID,Interviewers&$filter=Status%20eq%20%27Open%27%20and%20((Stage%20eq%20%27Active%27)%20or%20(Stage%20eq%20%27Rescheduled%27))";
+        $.ajax(
+                {
+                    url: requestUri,
+                    async: false,
+                    type: "GET",
+                    headers: { "Accept": "application/json; odata=verbose" },
+                    success: function (data) {
+                        if (data.d.results) {
+                            console.log(data.d.results);
+                            if (data.d.results.length > 0) {
+                                for (var i = 0; i < data.d.results.length; i++) {
+                                    var AppointmentIDEntry = data.d.results[i].Appointment_x0020_ID != null ? data.d.results[i].Appointment_x0020_ID : "";
+                                    var AppointmentStatusEntry = data.d.results[i].Status != null ? data.d.results[i].Status : "";
+                                    var AppointmentStageEntry = data.d.results[i].Stage != null ? data.d.results[i].Stage : "";
+                                    var roleentry = data.d.results[i].Role != null ? data.d.results[i].Role : "";
+                                    var interviewertypeentry = data.d.results[i].Interview != null ? data.d.results[i].Interview : "";
+
+
+                                    dashboardhtml += '<tr>';
+                                    dashboardhtml += '<td>'+AppointmentIDEntry+'</td>';
+                                    dashboardhtml += '<td>' + AppointmentStatusEntry + '</td>';
+                                    dashboardhtml += '<td>' + AppointmentStageEntry + '</td>';
+                                    if (data.d.results[i].Candidate_x0020_ID.Id != null) {
+                                        dashboardhtml += '<td>' + data.d.results[i].Candidate_x0020_ID.Id + '</td>';
+                                        var candidatenamedetails = GetCandidatesName(data.d.results[i].Candidate_x0020_ID.Id);
+                                        if (candidatenamedetails != "") {
+                                            dashboardhtml += '<td>' + candidatenamedetails + '</td>';
+                                        }
+                                        else {
+                                            dashboardhtml += '<td></td>';
+                                        }
+                                    }
+                                    else {
+                                        dashboardhtml += '<td></td>';
+                                        dashboardhtml += '<td></td>';
+                                    }                                    
+                                    dashboardhtml += '<td>' + roleentry + '</td>';
+                                    if (data.d.results[i].Interviewers != null) {
+                                        var interviewersname = "";
+                                        for (var inter_i = 0 ; inter_i < data.d.results[i].Interviewers.results.length ; inter_i++) {
+                                            if (data.d.results[i].Interviewers.results.length == inter_i + 1) {
+                                                interviewersname += data.d.results[i].Interviewers.results[inter_i].Title;
+                                            }
+                                            else {
+                                                interviewersname += data.d.results[i].Interviewers.results[inter_i].Title+ ",";
+                                            }
+                                        }
+                                        dashboardhtml += '<td>'+interviewersname+'</td>';
+                                    }
+                                    else {
+                                        dashboardhtml += '<td></td>';
+                                    }
+
+                                    dashboardhtml += '<td>'+interviewertypeentry+'</td>';
+                                    //dashboardhtml += '<td align="center"><span class="recicon editicon toggleclick"><input type="checkbox" name="editrec" class="editrec"/></span></td>';
+                                    //dashboardhtml += '<td align="center"><span class="recicon deleteicon"><input type="checkbox" name="dleterec" class="dleterec" /></span></td>';
+                                    dashboardhtml += '<td style="display:none">'+data.d.results[i].ID+'</td>';
+                                    dashboardhtml += '</tr>';
+                                }
+                                $("#Dashboardbody").html(dashboardhtml);
+
+                                //Pagination code started
+                                $('table.paginated').each(function () {
+                                    var currentPage = 0;
+                                    var numPerPage = "";
+                                    //if (configuration_value != "") {
+                                    //    numPerPage = configuration_value;
+                                    //}
+                                    //else {
+                                        numPerPage = 2;
+                                    //}
+                                    var $table = $(this);
+                                    $table.bind('repaginate', function () {
+                                        $table.find('tbody tr').hide().slice(currentPage * numPerPage, (currentPage + 1) * numPerPage).show();
+                                    });
+                                    $table.trigger('repaginate');
+                                    var numRows = $table.find('tbody tr').length;
+                                    var numPages = Math.ceil(numRows / numPerPage);
+                                    var $pager = $('<div class="pagination" id="divpagination"></div>');
+                                    var $previous = $('<span class="previous"><<</spnan>');
+                                    var $next = $('<span class="next">>></spnan>');
+                                    if (numRows > numPerPage) {
+                                        for (var page = 0; page < numPages; page++) {
+                                            $('<span class="page-number"></span>').text(page + 1).bind('click', {
+                                                newPage: page
+                                            }, function (event) {
+                                                currentPage = event.data['newPage'];
+                                                $table.trigger('repaginate');
+                                                $(this).addClass('active').siblings().removeClass('active');
+                                            }).appendTo($pager).addClass('clickable');
+                                        }
+                                        $pager.insertAfter($table).find('span.page-number:first').addClass('active');
+                                        $previous.insertBefore('span.page-number:first');
+                                        $next.insertAfter('span.page-number:last');
+                                    }
+                                    $next.click(function (e) {
+                                        $previous.addClass('clickable');
+                                        $pager.find('.active').next('.page-number.clickable').click();
+                                    });
+                                    $previous.click(function (e) {
+                                        $next.addClass('clickable');
+                                        $pager.find('.active').prev('.page-number.clickable').click();
+                                    });
+                                    $table.on('repaginate', function () {
+                                        $next.addClass('clickable');
+                                        $previous.addClass('clickable');
+
+                                        setTimeout(function () {
+                                            var $active = $pager.find('.page-number.active');
+                                            if ($active.next('.page-number.clickable').length === 0) {
+                                                $next.removeClass('clickable');
+                                            } else if ($active.prev('.page-number.clickable').length === 0) {
+                                                $previous.removeClass('clickable');
+                                            }
+                                            $('.table-responsive').hide();
+                                            $('.table-responsive').show(1000);
+                                        });
+                                    });
+                                    $table.trigger('repaginate');
+                                });
+                                //Pagination code ended
+                            }
+                        }
+                    },
+                    error: function (err) {
+                        alert("List Item Error Message: " + JSON.stringify(err));
+                        console.log("List Item Error Message: " + JSON.stringify(err));
+                    }
+                });
+
+    }
+    //Get Candidated Item from the list Started
+    function GetCandidatesName(Candidate_Name_ID) {
+        var candidate_Name = "";
+        var requestUri = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getByTitle('Candidates')/items('" + Candidate_Name_ID + "')";
+        $.ajax(
+            {
+                url: requestUri,
+                async: false,
+                type: "GET",
+                headers: { "Accept": "application/json; odata=verbose" },
+                success: function (data) {
+                    console.log(data.d);
+                        if (data.d) {
+                           
+                            candidate_Name = data.d.Candidate_x0020_Name;
+                           
+                        }                 
+                },
+                error: function (err) {
+                    //alert("error");
+                    console.log("List Item Error Message: " + JSON.stringify(err));
+                }
+            });
+        return candidate_Name;
+    }
+    //Get Candidated Item from the list ended
+</script>

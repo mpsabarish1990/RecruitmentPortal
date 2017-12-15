@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{ADFA5F8A-AAFC-4EB2-9B27-18127F9EFE92}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TillidBrandingTemplates</RootNamespace>
+    <AssemblyName>TillidBrandingTemplates</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetOfficeVersion>15.0</TargetOfficeVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{C1CDDADD-2546-481F-9697-4EA41081F2FC};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SandboxedSolution>False</SandboxedSolution>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.SharePoint" />
+    <Reference Include="Microsoft.SharePoint.Client.ServerRuntime" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Features\TillidBranding\TillidBranding.feature">
+      <FeatureId>{679ea94f-5608-4a89-9cc0-774314dd29e6}</FeatureId>
+    </None>
+    <None Include="Fonts\glyphicons-halflings-regular.eot" />
+    <None Include="Fonts\glyphicons-halflings-regular.ttf" />
+    <None Include="Fonts\glyphicons-halflings-regular.woff" />
+    <None Include="Fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="Fonts\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{2ca80929-450e-42da-8243-3b14d55f9618}</SharePointProjectItemId>
+    </None>
+    <None Include="Images\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{298e2792-3da4-48df-bbe2-f15a205b5d19}</SharePointProjectItemId>
+    </None>
+    <None Include="Javascripts\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{e7769a36-f0f5-4222-a6ec-3e3a833dc010}</SharePointProjectItemId>
+    </None>
+    <None Include="key.snk" />
+    <None Include="MasterPages\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{988c47e1-3934-4296-b2dd-7f8fcdf04e82}</SharePointProjectItemId>
+    </None>
+    <None Include="Package\Package.package">
+      <PackageId>{3a171c91-5e11-4960-a8a3-a688edc81501}</PackageId>
+    </None>
+    <None Include="Package\Package.Template.xml">
+      <DependentUpon>Package.package</DependentUpon>
+    </None>
+    <None Include="StyleSheets\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{380e9c04-fe45-4523-882b-b875846b7cc2}</SharePointProjectItemId>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Features\TillidBranding\TillidBranding.Template.xml">
+      <DependentUpon>TillidBranding.feature</DependentUpon>
+    </Content>
+    <Content Include="Fonts\Elements.xml" />
+    <Content Include="Fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Images\appointment.png" />
+    <Content Include="Images\assetmanagemtn.png" />
+    <Content Include="Images\delete.jpg" />
+    <Content Include="Images\edit.jpg" />
+    <Content Include="Images\Elements.xml" />
+    <Content Include="Images\employee.png" />
+    <Content Include="Images\feedback.png" />
+    <Content Include="Images\finance.png" />
+    <Content Include="Images\first.png" />
+    <Content Include="Images\hr Copy.png" />
+    <Content Include="Images\hr.png" />
+    <Content Include="Images\last.png" />
+    <Content Include="Images\leavebox.png" />
+    <Content Include="Images\logo.png" />
+    <Content Include="Images\logo.svg" />
+    <Content Include="Images\next.png" />
+    <Content Include="Images\offer.png" />
+    <Content Include="Images\options.png" />
+    <Content Include="Images\previous.png" />
+    <Content Include="Images\radio-checked.jpg" />
+    <Content Include="Images\radio-unchecked.jpg" />
+    <Content Include="Images\skils.png" />
+    <Content Include="Javascripts\bootstrap-datepicker.min.js" />
+    <Content Include="Javascripts\bootstrap-datetimepicker-2.3.10.js" />
+    <Content Include="Javascripts\bootstrap.min.js" />
+    <Content Include="Javascripts\common.js" />
+    <Content Include="Javascripts\Elements.xml" />
+    <Content Include="Javascripts\jquery-1.12.4.js" />
+    <Content Include="Javascripts\jquery-ui.js" />
+    <Content Include="Javascripts\main.js" />
+    <Content Include="Javascripts\moment.min.js" />
+    <Content Include="MasterPages\Elements.xml" />
+    <Content Include="MasterPages\RecruitmentPortal.html" />
+    <Content Include="StyleSheets\bootstrap-datepicker.min.css" />
+    <Content Include="StyleSheets\bootstrap-datetimepicker.css" />
+    <Content Include="StyleSheets\bootstrap.min.css" />
+    <Content Include="StyleSheets\Elements.xml" />
+    <Content Include="StyleSheets\jquery-ui.css" />
+    <Content Include="StyleSheets\main.css" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0'">11.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" Condition="'$(VSToolsPath)' != ''" />
+</Project>

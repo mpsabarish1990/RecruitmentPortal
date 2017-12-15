@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="MasterPages" Url="_catalogs/masterpage/TillidSoft">
+    <File Path="MasterPages\RecruitmentPortal.html" Url="RecruitmentPortal.html" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+  </Module>
+</Elements>
+
+

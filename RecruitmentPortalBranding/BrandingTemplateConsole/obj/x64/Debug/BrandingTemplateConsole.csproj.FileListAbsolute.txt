@@ -1,0 +1,6 @@
+c:\users\devadmin\documents\visual studio 2012\Projects\RecruitPortalBranding\BrandingTemplateConsole\bin\x64\Debug\BrandingTemplateConsole.exe.config
+c:\users\devadmin\documents\visual studio 2012\Projects\RecruitPortalBranding\BrandingTemplateConsole\bin\x64\Debug\BrandingTemplateConsole.exe
+c:\users\devadmin\documents\visual studio 2012\Projects\RecruitPortalBranding\BrandingTemplateConsole\bin\x64\Debug\BrandingTemplateConsole.pdb
+c:\users\devadmin\documents\visual studio 2012\Projects\RecruitPortalBranding\BrandingTemplateConsole\obj\x64\Debug\BrandingTemplateConsole.exe
+c:\users\devadmin\documents\visual studio 2012\Projects\RecruitPortalBranding\BrandingTemplateConsole\obj\x64\Debug\BrandingTemplateConsole.pdb
+c:\users\devadmin\documents\visual studio 2012\Projects\RecruitPortalBranding\BrandingTemplateConsole\obj\x64\Debug\BrandingTemplateConsole.csprojResolveAssemblyReference.cache

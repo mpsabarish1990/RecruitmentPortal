@@ -1,0 +1,5 @@
+c:\users\devadmin\documents\visual studio 2012\Projects\RecruitPortal\RecruitPortal\bin\Debug\RecruitPortal.dll
+c:\users\devadmin\documents\visual studio 2012\Projects\RecruitPortal\RecruitPortal\bin\Debug\RecruitPortal.pdb
+c:\users\devadmin\documents\visual studio 2012\Projects\RecruitPortal\RecruitPortal\obj\Debug\RecruitPortal.csprojResolveAssemblyReference.cache
+c:\users\devadmin\documents\visual studio 2012\Projects\RecruitPortal\RecruitPortal\obj\Debug\RecruitPortal.dll
+c:\users\devadmin\documents\visual studio 2012\Projects\RecruitPortal\RecruitPortal\obj\Debug\RecruitPortal.pdb

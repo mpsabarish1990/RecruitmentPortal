@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecruitPortal", "RecruitPortal\RecruitPortal.csproj", "{72193EC0-266A-485E-A09A-5A2412C3B033}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tillid Branding", "..\..\..\..\..\..\TillidBrandingTemplates\TillidBrandingTemplates\Tillid Branding.csproj", "{ADFA5F8A-AAFC-4EB2-9B27-18127F9EFE92}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecruitPortal-SiteAssets", "RecruitPortal-SiteAssets\RecruitPortal-SiteAssets.csproj", "{DE67CF9F-CE65-40F4-941C-A05A0382A409}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{72193EC0-266A-485E-A09A-5A2412C3B033}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72193EC0-266A-485E-A09A-5A2412C3B033}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72193EC0-266A-485E-A09A-5A2412C3B033}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{72193EC0-266A-485E-A09A-5A2412C3B033}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72193EC0-266A-485E-A09A-5A2412C3B033}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72193EC0-266A-485E-A09A-5A2412C3B033}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{ADFA5F8A-AAFC-4EB2-9B27-18127F9EFE92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADFA5F8A-AAFC-4EB2-9B27-18127F9EFE92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADFA5F8A-AAFC-4EB2-9B27-18127F9EFE92}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{ADFA5F8A-AAFC-4EB2-9B27-18127F9EFE92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADFA5F8A-AAFC-4EB2-9B27-18127F9EFE92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADFA5F8A-AAFC-4EB2-9B27-18127F9EFE92}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{DE67CF9F-CE65-40F4-941C-A05A0382A409}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE67CF9F-CE65-40F4-941C-A05A0382A409}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE67CF9F-CE65-40F4-941C-A05A0382A409}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{DE67CF9F-CE65-40F4-941C-A05A0382A409}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE67CF9F-CE65-40F4-941C-A05A0382A409}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE67CF9F-CE65-40F4-941C-A05A0382A409}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

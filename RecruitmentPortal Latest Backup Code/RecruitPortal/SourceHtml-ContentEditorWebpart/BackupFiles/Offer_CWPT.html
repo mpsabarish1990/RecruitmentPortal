@@ -1,0 +1,786 @@
+<script src="/SiteAssets/RecruitmentPortal/js/common.js"></script>  
+<h2 class="title_hr">HR</h2>
+<h3 class="subhead_offers">Offer</h3>
+<div class="form_cover toggleclass">
+	<!--1st Row-->	
+	<div class="row">
+		<div class="col-md-7 nopad">
+			<div class="col-md-4">
+				<div class="form-group">
+					<label>Offer Id *</label>								
+					<input type="text" id="txtofferid" class="form-control">
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+					<label>Candidate Id *</label>								
+					<!-- <input type="text" class="form-control"> -->
+					<select class="form-control" id="drpcandidateid"></select>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<label>Attempt No *</label>	
+				<div class="form-group">							
+					<input type="text" id="txtattemptno" class="form-control">
+				</div>
+			</div>
+		</div>
+		<div class="col-md-5 nopad">
+			<div class="col-md-6">
+				<label>Offer Position *</label>	
+				<div class="form-group">							
+					<input type="text" id="txtofferpostion" class="form-control">
+				</div>
+			</div>
+			<div class="col-md-6">
+				<label>Annual CTC *<span class="annualctc">(Inclusive of variable pay)</span></label>	
+				<div class="form-group">							
+					<input type="text" id="txtannualctc" class="form-control">
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--2nd Row-->	
+	<div class="row">
+		<div class="col-md-7 nopad">
+			<div class="col-md-4">
+				<div class="form-group">
+					<label>Variable Pay (Amount) *</label>								
+					<input type="text" id="txtvariablepay" class="form-control">
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+					<label>Variable Pay Details *</label>								
+					<input type="text" id="txtvariablepaydetails" class="form-control">
+				</div>
+			</div>
+			<div class="col-md-4">
+				<label>Offer Notes *</label>	
+				<div class="form-group">							
+					<input type="text" id="txtoffernotes" class="form-control">
+				</div>
+			</div>
+		</div>
+		<div class="col-md-5 nopad">
+			<div class="col-md-6">
+				<label>Offer Date *</label>	
+				<div class="form-group">							
+					<div class="input-group date" id="Datetimepicker2">
+                        <input class="form-control valid" id="txtofferdate" type="text">
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<label>Accepted *</label>	
+				<div class="form-group">							
+					<label class="radio-inline radiobg"><input type="radio" class="rodaccepted" id="rodacceptedyes" value="Yes" name="optradio1">Yes</label>
+					<label class="radio-inline radiobg"><input type="radio" class="rodaccepted" id="rodacceptedno" value="No" name="optradio1">No</label>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--2nd Row-->	
+	<div class="row">
+		<div class="col-md-7 nopad">
+			<div class="col-md-4">
+				<div class="form-group">
+					<label>Joining Date *</label>								
+					<div class="input-group date" id="Datetimepicker3">
+                        <input class="form-control valid" id="txtjoiningdate" type="text">
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+					<label>Offer Valid Date *</label>								
+					<div class="input-group date" id="Datetimepicker4">
+                        <input class="form-control valid" id="txtoffervaliddate" type="text">
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<label>No Show *</label>	
+				<div class="form-group">							
+					<label class="radio-inline radiobg"><input type="radio" class="rodnoshow" id="rodnoshowyes" value="Yes" name="optradio2">Yes</label>
+					<label class="radio-inline radiobg"><input type="radio" class="rodnoshow" id="rodnoshowno" value="No" name="optradio2">No</label>
+				</div>
+			</div>
+		</div>
+	</div>	
+	<!--Submit Area-->
+	<p class="submit">
+		<a class="btn btn-primary" id="btnclear">Clear</a>&nbsp;
+		<a class="btn btn-primary toggleclick" id="btnsave">Save</a>&nbsp;
+		<a class="btn btn-primary toggleclick" id="btncancel">Cancel</a>&nbsp;
+	</p>
+</div>
+<!--5th Row-->
+<div class="table-responsive mtop-0">
+	<table class="skiltab table table-bordered paginated">
+		<thead>
+			<tr>
+				<th>Offer ID</th>
+				<th>Candidate ID</th>
+				<th>Attempt No</th>
+				<th>Offer Position</th>
+				<th>Annual CTC</th>
+				<th>Variable Pay</th>
+				<th>Variable Pay Details</th>
+				<th>Offer Notes</th>
+				<th class="text-center">Edit</th>
+				<th class="text-center">Delete</th>
+			</tr>
+		</thead>
+		<tbody id="offertbody">
+			<!-- <tr>
+				<td>123456</td>
+				<td>326598</td>
+				<td>5</td>
+				<td>SharePoint Developer</td>
+				<td>5Lakhs</td>
+				<td>20000</td>
+				<td>6 Month Once</td>
+				<td>Demonstraverunt lectores legere.</td>
+				<td align="center"><span class="recicon editicon toggleclick"><input type="checkbox" name="editrec" class="editrec"></span></td>
+				<td align="center"><span class="recicon deleteicon"><input type="checkbox" name="dleterec" class="dleterec"></span></td>
+			</tr> -->
+		</tbody>
+	</table>		
+</div>	
+
+ <p class="submit text-right pright-5"><input type="button" id="bntAddRow" class="btn btn-primary addrow toggleclick" value="+ Add Offers">&nbsp;</p>
+
+<script>
+var listDisplayName = "Offers"
+var listInternalNameItem = "SP.Data.OffersListItem";
+var DeleteItemId = "";
+var EditItemId = "";
+var configuration_value = "";
+
+
+var OfferId_entry = "";
+var CandidateId_entry= "";
+var AttemptNo_entry ="";
+var OfferPosition_entry = "";
+var AnnualCTC_entry = "";
+var VariablePay_entry="";
+var VariablePayDetails_entry="";
+var OfferNotes_entry = "";
+var OfferDate_entry = "";
+var Accepted_entry = "";
+var JoiningDate_entry = "";
+var OfferValidDate_entry = "";
+var NoShow_entry = "";
+
+
+jQuery(document).ready(function () {
+  configuration_value = GetConfigurationitem("Pagination Count","Offers");
+  GetofferLists();
+  LoadAllDropdown();
+   $("#btnsave").click(function () {
+	   	 if (validateForm() && radiobtnvalidation_option1() && radiobtnvalidation_option2()) {
+	   		GetOfferEntry();
+	   		if(EditItemId != "")
+	         {
+	           	EditItemOffer();
+	         }
+	         else
+		     { 
+	    	  	AddItemOffer();
+	     	  }
+		    GetofferLists();
+		}
+		else 
+		{
+	       alert("Please Enter all the required fields");
+	                
+	    }
+   });
+    $("#btnclear").click(function(){
+         Cleartextentry();
+     });
+
+
+    $("#bntAddRow").click(function(){
+         if(EditItemId != "")
+         {
+            Cleartextentry();
+            $("#btnsave").html("Save");
+            EditItemId = "";
+        }
+        else
+        {
+            Cleartextentry();
+            $("#btnsave").html("Save");
+        }
+    });
+});
+//Clear all the form entry method started
+function Cleartextentry()
+{
+	 $("#txtofferid").val('');
+	 $("#drpcandidateid").val('Select');
+	 $("#txtattemptno").val('');
+	 $("#txtofferpostion").val('');
+	 $("#txtannualctc").val('');
+	 $("#txtvariablepay").val('');
+	 $("#txtvariablepaydetails").val('');
+	 $("#txtoffernotes").val('');
+	 $('#Datetimepicker2').find("input").val('');
+	 $('#Datetimepicker3').find("input").val('');
+	 $('#Datetimepicker4').find("input").val('');
+}
+//Clear all the form entry method ended
+//Get Offer form entry Method Started
+function GetOfferEntry()
+{
+	OfferId_entry = $("#txtofferid").val();
+	CandidateId_entry = $("#drpcandidateid option:selected").val();
+	AttemptNo_entry = $("#txtattemptno").val();
+	OfferPosition_entry = $("#txtofferpostion").val();
+	AnnualCTC_entry = $("#txtannualctc").val();
+	VariablePay_entry = $("#txtvariablepay").val();
+	VariablePayDetails_entry = $("#txtvariablepaydetails").val();
+	OfferNotes_entry = $("#txtoffernotes").val();
+	OfferDate_entry = $('#Datetimepicker2').find("input").val();
+	JoiningDate_entry = $('#Datetimepicker3').find("input").val();
+	OfferValidDate_entry = $('#Datetimepicker4').find("input").val();
+	$('.rodaccepted').each(function () {
+            if ($(this).is(':checked')) {
+                if ($(this).attr('value') == "Yes") {
+                    Accepted_entry = "Yes";
+                }
+                else {
+                    Accepted_entry = "No";
+                }
+
+            }
+        });
+        $('.rodnoshow').each(function () {
+            if ($(this).is(':checked')) {
+                if ($(this).attr('value') == "Yes") {
+                    NoShow_entry = "Yes";
+                }
+                else {
+                    NoShow_entry = "No";
+                }
+
+            }
+        });
+}
+//Get offer from entry mothod ended
+
+//Add New item in the offer list method started
+function AddItemOffer()
+{
+	var requestUri = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getByTitle('" + listDisplayName + "')/items";
+      var Header_Body = {
+                "Accept": "application/json;odata=verbose",
+                "content-type": "application/json; odata=verbose",
+                "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+                //"X-HTTP-Method": "MERGE",
+                //"If-Match": "*"
+            }
+       $.ajax(
+               {
+                   url: requestUri,
+                   async: false,
+                   type: "POST",
+                   data: JSON.stringify({
+                       '__metadata': { 'type': listInternalNameItem },
+                       'Offer_x0020_ID' : OfferId_entry,
+                       'Candidate_x0020_IDId' : CandidateId_entry,
+                      'Attempt_x0020_No' : parseFloat(AttemptNo_entry),
+                       'Offer_x0020_Position' : OfferPosition_entry,
+                       'Annual_x0020_CTC' : parseFloat(AnnualCTC_entry),
+                       'Variable_x0020_Pay' : parseFloat(VariablePay_entry),
+                       'Variable_x0020_Pay_x0020_Details' : VariablePayDetails_entry,
+                       'Offer_x0020_Notes' : OfferNotes_entry,
+                       'Offer_x0020_Date' :OfferDate_entry,
+                       'Accepted' : Accepted_entry,
+                       'Joining_x0020_Date' : JoiningDate_entry,
+                       'Offer_x0020_Valid_x0020_Date' :OfferValidDate_entry,
+                       'NoShow' :NoShow_entry,
+
+                   }),
+                   headers: Header_Body,
+                   success: function (data) {                       
+                         //alert(data.d.Id); 
+                         alert("Item added successfully"); 
+                   },
+                   error: function (err) {
+                       alert("Offers List Item Error Message: " + JSON.stringify(err));
+                       console.log("Offers List Item Error Message: " + JSON.stringify(err));
+                   }
+               });
+}
+//Add new item in the offer list method ended
+
+//Get Offer Item from the List Method Started
+function GetofferLists()
+{
+	$("#divpagination").remove();
+    var offerhtml = "";
+     var requestUri = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('"+listDisplayName+"')/items?$select=Offer_x0020_ID,Attempt_x0020_No,Offer_x0020_Position,Annual_x0020_CTC,Variable_x0020_Pay,Variable_x0020_Pay_x0020_Details,Offer_x0020_Valid_x0020_Date,Joining_x0020_Date,Accepted,Offer_x0020_Date,Offer_x0020_Notes,NoShow,ID,Candidate_x0020_ID/Id,Candidate_x0020_ID/Candidate_x0020_ID&$expand=Candidate_x0020_ID";
+       $.ajax(
+               {
+                   url: requestUri,
+                   async: false,
+                   type: "GET",
+                   headers: { "Accept": "application/json; odata=verbose" },
+                   success: function (data) {
+                   if (data.d.results) {
+                    console.log(data.d.results);
+                       if (data.d.results.length > 0) {
+                           for (var i = 0; i < data.d.results.length; i++) {  
+							var attemptno = data.d.results[i].Attempt_x0020_No != null ? data.d.results[i].Attempt_x0020_No : "";
+							var offerposition = data.d.results[i].Offer_x0020_Position != null ? data.d.results[i].Offer_x0020_Position :"";
+							var annualctc = data.d.results[i].Annual_x0020_CTC != null ? data.d.results[i].Annual_x0020_CTC :"";
+							var variablepay = data.d.results[i].Variable_x0020_Pay != null ? data.d.results[i].Variable_x0020_Pay :"";
+			var variablepaydetails = data.d.results[i].Variable_x0020_Pay_x0020_Details != null ? data.d.results[i].Variable_x0020_Pay_x0020_Details :"";
+							var offernote = data.d.results[i].Offer_x0020_Notes != null ? data.d.results[i].Offer_x0020_Notes :"";
+
+                            offerhtml += '<tr>';
+                            offerhtml += '<td>'+data.d.results[i].Offer_x0020_ID+'</td>';
+                            offerhtml += '<td>'+data.d.results[i].Candidate_x0020_ID.Candidate_x0020_ID+'</td>';
+                            offerhtml += '<td>'+attemptno+'</td>';
+                            offerhtml  += '<td>'+offerposition+'</td>';
+                            offerhtml += '<td>'+annualctc+'</td>';
+                            offerhtml += '<td>'+variablepay+'</td>';
+                            offerhtml += '<td>'+variablepaydetails+'</td>';
+                            offerhtml += '<td>'+offernote+'</td>';
+            offerhtml += '<td align="center"><span class="recicon editicon toggleclick"><input type="checkbox" name="editrec" class="editrec"/></span></td>';
+            offerhtml += '<td align="center"><span class="recicon deleteicon"><input type="checkbox" name="dleterec" class="dleterec" /></span></td>';
+                            offerhtml += '<td style="display:none">'+data.d.results[i].ID+'</td>';
+                            offerhtml += '</tr>';            
+                        }
+                        $("#offertbody").html(offerhtml);
+                        $(".dleterec").click(function(){
+                             alert('Are you sure want to delete this record?');
+                             DeleteItemId = $(this).closest("tr").find("td:last").text();
+                             DeleteOffersItem();
+
+                        });
+                        $(".editrec").click(function(){
+                            EditItemId = $(this).closest("tr").find("td:last").text();
+                            
+                            EditOffersItem();   
+                             Bind_Functions();      
+                               $("#btnsave").click(function () {
+						   	 		if (validateForm() && radiobtnvalidation_option1() && radiobtnvalidation_option2()) {
+								   		GetOfferEntry();
+								   		if(EditItemId != "")
+								         {
+								           	EditItemOffer();
+								         }
+								         else
+									     { 
+								    	  	AddItemOffer();
+								     	  }
+									   	   GetofferLists();
+										}
+										else 
+										{
+									       alert("Please Enter all the required fields");
+									                
+									    }
+							   });								   
+							   $("#btnclear").click(function(){
+							         Cleartextentry();
+							     });
+
+
+							    $("#bntAddRow").click(function(){
+							         if(EditItemId != "")
+							         {
+							            Cleartextentry();
+							            $("#btnsave").html("Save");
+							            EditItemId = "";
+							        }
+							        else
+							        {
+							            Cleartextentry();
+							            $("#btnsave").html("Save");
+							        }
+							    });     
+              							
+                        });
+                         //Pagination code started
+                             $('table.paginated').each(function() {
+                                var currentPage = 0;
+                                var numPerPage ="";
+                                if(configuration_value != "")
+                                {
+                                     numPerPage = configuration_value;
+                                }
+                                else
+                                {
+                                     numPerPage = 10;
+                                }
+                                var $table = $(this);
+                                $table.bind('repaginate', function() {
+                                    $table.find('tbody tr').hide().slice(currentPage * numPerPage, (currentPage + 1) * numPerPage).show();
+                                });
+                                $table.trigger('repaginate');
+                                var numRows = $table.find('tbody tr').length;
+                                var numPages = Math.ceil(numRows / numPerPage);
+                                var $pager = $('<div class="pagination" id="divpagination"></div>');
+                                var $previous = $('<span class="previous"><<</spnan>');
+                                var $next = $('<span class="next">>></spnan>');
+                                if(numRows > numPerPage)
+                                {
+                                      for (var page = 0; page < numPages; page++) {
+                                          $('<span class="page-number"></span>').text(page + 1).bind('click', {
+                                              newPage: page
+                                          }, function(event) {
+                                              currentPage = event.data['newPage'];
+                                              $table.trigger('repaginate');
+                                              $(this).addClass('active').siblings().removeClass('active');
+                                          }).appendTo($pager).addClass('clickable');
+                                      }
+                                      $pager.insertAfter($table).find('span.page-number:first').addClass('active');
+                                      $previous.insertBefore('span.page-number:first');
+                                      $next.insertAfter('span.page-number:last');
+                                }
+                                $next.click(function (e) {
+                                    $previous.addClass('clickable');
+                                    $pager.find('.active').next('.page-number.clickable').click();
+                                });
+                                $previous.click(function (e) {
+                                    $next.addClass('clickable');
+                                    $pager.find('.active').prev('.page-number.clickable').click();
+                                });
+                                $table.on('repaginate', function () {
+                                    $next.addClass('clickable');
+                                    $previous.addClass('clickable');
+                                    
+                                    setTimeout(function () {
+                                        var $active = $pager.find('.page-number.active');
+                                        if ($active.next('.page-number.clickable').length === 0) {
+                                            $next.removeClass('clickable');
+                                        } else if ($active.prev('.page-number.clickable').length === 0) {
+                                            $previous.removeClass('clickable');
+                                        }
+                                        $('.table-responsive').hide();
+                                        $('.table-responsive').show(1000);
+                                    });
+                                });
+                                $table.trigger('repaginate');
+                            });
+                            //Pagination code ended
+                    }
+                }
+                },
+                error: function (err) {
+                    alert("Offers Item Error Message: " + JSON.stringify(err));
+                    console.log("Offers Item Error Message: " + JSON.stringify(err));
+                }
+            });
+}
+//Get Offer Item from the List Method Ended
+//Delete Offers Item started
+function DeleteOffersItem()
+{
+    var restUrl = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/GetByTitle('" + listDisplayName + "')/items(" + DeleteItemId + ")";
+    jQuery.ajax({
+        url: restUrl,
+        type: "POST",  
+        headers: {
+        Accept: "application/json;odata=verbose",
+        "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+        "IF-MATCH": "*",
+        "X-HTTP-Method": "DELETE"  
+        },
+         success: function(data, status, xhr)  
+        {  
+            GetofferLists();  
+        },      
+    });
+}
+//Delete Offers Item endedd
+
+////Edit Offers form started
+function EditOffersItem()
+{
+	   $("#btnsave").html("Update");
+    var requestUri = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/GetByTitle('" + listDisplayName + "')/items(" + EditItemId + ")?$select=Offer_x0020_ID,Attempt_x0020_No,Offer_x0020_Position,Annual_x0020_CTC,Variable_x0020_Pay,Variable_x0020_Pay_x0020_Details,Offer_x0020_Valid_x0020_Date,Joining_x0020_Date,Accepted,Offer_x0020_Date,Offer_x0020_Notes,NoShow,ID,Candidate_x0020_ID/Id,Candidate_x0020_ID/Candidate_x0020_ID&$expand=Candidate_x0020_ID";
+    $.ajax(
+               {
+                   url: requestUri,
+                   async: false,
+                   type: "GET",
+                   headers: { "Accept": "application/json; odata=verbose" },
+                   success: function (data) {
+                   if (data.d) {
+                    console.log(data.d);
+				
+ 						var OfferDateSplit = data.d.Offer_x0020_Date.split('T')[0].split('-');
+                        var OfferDate_value = OfferDateSplit[1] + "-" + OfferDateSplit[2] + "-" + OfferDateSplit[0];
+
+                        var JoiningDateSplit = data.d.Joining_x0020_Date.split('T')[0].split('-');
+                        var JoiningDate_value = JoiningDateSplit[1] + "-" + JoiningDateSplit[2] + "-" + JoiningDateSplit[0];
+
+                        var OfferValidDateSplit = data.d.Offer_x0020_Valid_x0020_Date.split('T')[0].split('-');
+                        var OfferValidDate_value = OfferValidDateSplit[1] + "-" + OfferValidDateSplit[2] + "-" + OfferValidDateSplit[0];
+
+						$("#txtofferid").val(data.d.Offer_x0020_ID);
+						 $("#drpcandidateid").val(data.d.Candidate_x0020_ID.Id);
+						 $("#txtattemptno").val(data.d.Attempt_x0020_No);
+						 $("#txtofferpostion").val(data.d.Offer_x0020_Position);
+						 $("#txtannualctc").val(data.d.Annual_x0020_CTC);
+						 $("#txtvariablepay").val(data.d.Variable_x0020_Pay);
+						 $("#txtvariablepaydetails").val($(data.d.Variable_x0020_Pay_x0020_Details).text());
+						 $("#txtoffernotes").val($(data.d.Offer_x0020_Notes).text());
+						 $('#Datetimepicker2').find("input").val(OfferDate_value);
+						 $('#Datetimepicker3').find("input").val(JoiningDate_value);
+						 $('#Datetimepicker4').find("input").val(OfferValidDate_value);
+						 if(data.d.Selected == "Yes")
+					    {
+					                        $(".rodaccepted:eq(0)").attr("checked", true);
+					        $("#rodacceptedyes").parent().addClass("checked");
+					    }
+					    else
+					    {
+					        $(".rodaccepted:eq(1)").attr("checked", true);
+					        $("#rodacceptedno").parent().addClass("checked");
+					    }   
+					     if(data.d.Selected == "Yes")
+					    {
+					        $(".rodnoshow:eq(0)").attr("checked", true);
+					        $("#rodnoshowyes").parent().addClass("checked");
+					    }
+					    else
+					    {
+					        $(".rodnoshow:eq(1)").attr("checked", true);
+					        $("#rodnoshowno").parent().addClass("checked");
+					    }     
+	    }
+            },
+            error: function (err) {
+                    alert("Offers Item Error Message: " + JSON.stringify(err));
+                    console.log("Offers Item Error Message: " + JSON.stringify(err));
+            }
+        });
+}
+
+//Edit Offers form Ended
+
+//Add New item in the offer list method started
+function EditItemOffer()
+{
+	var requestUri = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getByTitle('" + listDisplayName + "')/items('"+EditItemId+"')";
+      var Header_Body = {
+                "Accept": "application/json;odata=verbose",
+                "content-type": "application/json; odata=verbose",
+                "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+                "X-HTTP-Method": "MERGE",
+                "If-Match": "*"
+            }
+       $.ajax(
+               {
+                   url: requestUri,
+                   async: false,
+                   type: "POST",
+                   data: JSON.stringify({
+                       '__metadata': { 'type': listInternalNameItem },
+                       'Offer_x0020_ID' : OfferId_entry,
+                       'Candidate_x0020_IDId' : CandidateId_entry,
+                      'Attempt_x0020_No' : parseFloat(AttemptNo_entry),
+                       'Offer_x0020_Position' : OfferPosition_entry,
+                       'Annual_x0020_CTC' : parseFloat(AnnualCTC_entry),
+                       'Variable_x0020_Pay' : parseFloat(VariablePay_entry),
+                       'Variable_x0020_Pay_x0020_Details' : VariablePayDetails_entry,
+                       'Offer_x0020_Notes' : OfferNotes_entry,
+                       'Offer_x0020_Date' :OfferDate_entry,
+                       'Accepted' : Accepted_entry,
+                       'Joining_x0020_Date' : JoiningDate_entry,
+                       'Offer_x0020_Valid_x0020_Date' :OfferValidDate_entry,
+                       'NoShow' :NoShow_entry,
+
+                   }),
+                   headers: Header_Body,
+                   success: function (data) {                       
+                         //alert(data.d.Id); 
+                         alert("Item updated successfully"); 
+                   },
+                   error: function (err) {
+                       alert("Offers List Item Error Message: " + JSON.stringify(err));
+                       console.log("Offers List Item Error Message: " + JSON.stringify(err));
+                   }
+               });
+}
+//Add new item in the offer list method ended
+
+ //Load Drop Down Values Started
+    function LoadAllDropdown() {
+        var offerhtml = "";
+        $.ajax({
+            url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('Candidates')/items",
+            type: "GET",
+            headers: { "accept": "application/json;odata=verbose" },
+            async: false,
+            success: function (data) {
+
+                if (data.d.results) {
+
+                    if (data.d.results.length > 0) {
+                        offerhtml += '<option value="Select">Select</option>'
+                        for (var s_i = 0; s_i < data.d.results.length; s_i++) {
+                            offerhtml += '<option value="' + data.d.results[s_i].ID + '">' + data.d.results[s_i].Candidate_x0020_ID + '</option>';
+
+                        }
+                        $("#drpcandidateid").html(offerhtml);
+                    }
+
+                }
+            },
+            error: function (xhr) {
+                alert(xhr.status + ': ' + xhr.statusText);
+            }
+        });
+    }
+    //Load Drop Down Values Ended
+
+//Validate the Form method started
+function validateForm() {
+		
+ 	 var offersid_validate = $("#txtofferid").val();
+	 var candidateid_validate = $("#drpcandidateid option:selected").val();
+	 var attemptno_validate = $("#txtattemptno").val();
+	 var offerpostion_validate = $("#txtofferpostion").val();
+	 var annualctc_validate = $("#txtannualctc").val();
+	 var variablepay_validate = $("#txtvariablepay").val();
+	 var variablepaydetails_validate = $("#txtvariablepaydetails").val();
+	 var offernotes_validate = $("#txtoffernotes").val();
+	 var offersDate_validate = $('#Datetimepicker2').find("input").val();
+	 var joiningdate_validate = $('#Datetimepicker3').find("input").val();
+	 var offersvaliddate_validate = $('#Datetimepicker4').find("input").val();
+
+	    
+        if (offersid_validate == "") {
+            return false;
+        } else if (candidateid_validate == "Select") {
+            return false;
+        }
+        else if (attemptno_validate == "") {
+            return false;
+        }
+        else if (offerpostion_validate == "") {
+            return false;
+        }
+        else if (annualctc_validate == "") {
+            return false;
+        }
+        else if (variablepay_validate == "") {
+            return false;
+        } else if (variablepaydetails_validate == "") {
+            return false;
+        } 
+        else if (offernotes_validate == "") {
+            return false;
+        } else if (offersDate_validate == "") {
+            return false;
+        } else if (joiningdate_validate == "") {
+            return false;
+        }   else if (offersvaliddate_validate == "") {
+            return false;
+        }        
+
+        return true;
+}
+function radiobtnvalidation_option1()
+{
+    var radios = document.getElementsByName("optradio1");
+    var formValid = false;
+
+    var i = 0;
+    while (!formValid && i < radios.length) {
+        if (radios[i].checked) formValid = true;
+        i++;
+    }
+
+    if (!formValid) return false;
+    return formValid;
+}
+function radiobtnvalidation_option2()
+{
+    var radios = document.getElementsByName("optradio2");
+    var formValid = false;
+
+    var i = 0;
+    while (!formValid && i < radios.length) {
+        if (radios[i].checked) formValid = true;
+        i++;
+    }
+
+    if (!formValid) return false;
+    return formValid;
+}
+
+
+    // Function Rebinding (Review)
+    function Bind_Functions() {
+
+        $(function () {
+            // run the currently selected effect
+            function runEffect() {
+                // get effect type from
+                var selectedEffect = "blind";
+                // Most effect types need no options passed by default
+                var options = {};
+                // some effects have required parameters
+                if (selectedEffect === "scale") {
+                    options = { percent: 100 };
+                } else if (selectedEffect === "size") {
+                    options = { to: { width: 100, height: 100 } };
+                }
+
+                // Run the effect
+                $(".toggleclass").toggle(selectedEffect, options, 500);
+            };
+
+            // Set effect from select menu value
+
+            $(".toggleclick").unbind();
+            $(".toggleclick").bind("click", function () {
+                runEffect();
+                var getDisval = $('.addrow.toggleclick').prop('disabled');
+                if (getDisval == false) {
+                    $('.addrow.toggleclick').prop('disabled', true);
+                    $('.editrec').prop('disabled', true);
+                    $('.table-responsive').addClass('mtop-30');
+                }
+                else {
+                    $('.addrow.toggleclick').prop('disabled', false);
+                    $('.editrec').prop('disabled', false);
+                    $('.table-responsive').removeClass('mtop-30');
+                }
+
+            });
+
+            /*Radio Button Style Starts Here*/
+            $('.radiobg input').click(function () {
+                //debugger;
+                if ($('.radiobg input').is(':checked')) {
+                    //$(event.target).parents().eq(3);
+                    $(event.target).parents().eq(3).find('input[type="radio"]').parent().removeClass('checked');
+                    $(this).parent().addClass('checked');
+                }
+            });
+            /*Radio Button Style Ends Here*/
+
+
+        });
+      }
+</script>
+

@@ -1,0 +1,4 @@
+C:\Users\devadmin\documents\visual studio 2012\Projects\RecruitPortalBranding\DevBrandingTemplates\bin\Debug\DevBrandingTemplates.dll
+C:\Users\devadmin\documents\visual studio 2012\Projects\RecruitPortalBranding\DevBrandingTemplates\bin\Debug\DevBrandingTemplates.pdb
+C:\Users\devadmin\documents\visual studio 2012\Projects\RecruitPortalBranding\DevBrandingTemplates\obj\Debug\DevBrandingTemplates.dll
+C:\Users\devadmin\documents\visual studio 2012\Projects\RecruitPortalBranding\DevBrandingTemplates\obj\Debug\DevBrandingTemplates.pdb

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="Fonts" Url ="_catalogs/masterpage/TillidSoft">
+    <File Path="Fonts\glyphicons-halflings-regular.eot" Url="Fonts/glyphicons-halflings-regular.eot" Type="GhostableInLibrary" ReplaceContent="TRUE"/>
+    <File Path="Fonts\glyphicons-halflings-regular.svg" Url="Fonts/glyphicons-halflings-regular.svg" Type="GhostableInLibrary" ReplaceContent="TRUE"/>
+    <File Path="Fonts\glyphicons-halflings-regular.ttf" Url="Fonts/glyphicons-halflings-regular.ttf" Type="GhostableInLibrary" ReplaceContent="TRUE"/>
+    <File Path="Fonts\glyphicons-halflings-regular.woff" Url="Fonts/glyphicons-halflings-regular.woff" Type="GhostableInLibrary" ReplaceContent="TRUE"/>
+    <File Path="Fonts\glyphicons-halflings-regular.woff2" Url="Fonts/glyphicons-halflings-regular.woff2" Type="GhostableInLibrary" ReplaceContent="TRUE"/>
+  </Module>
+</Elements>

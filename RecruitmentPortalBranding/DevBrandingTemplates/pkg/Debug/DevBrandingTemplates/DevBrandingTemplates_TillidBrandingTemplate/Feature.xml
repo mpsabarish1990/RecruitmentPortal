@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Feature xmlns="http://schemas.microsoft.com/sharepoint/" Title="Tillid BrandingTemplates " Id="773f7c87-c90f-4c4d-955d-4e8789dfac22" Scope="Site">
+  <ElementManifests>
+    <ElementManifest Location="StyleSheets\Elements.xml" />
+    <ElementFile Location="StyleSheets\bootstrap-datepicker.min.css" />
+    <ElementFile Location="StyleSheets\bootstrap-datetimepicker.css" />
+    <ElementFile Location="StyleSheets\bootstrap.min.css" />
+    <ElementFile Location="StyleSheets\jquery-ui.css" />
+    <ElementFile Location="StyleSheets\main.css" />
+    <ElementManifest Location="Images\Elements.xml" />
+    <ElementFile Location="Images\skils.png" />
+    <ElementFile Location="Images\radio-unchecked.jpg" />
+    <ElementFile Location="Images\radio-checked.jpg" />
+    <ElementFile Location="Images\previous.png" />
+    <ElementFile Location="Images\options.png" />
+    <ElementFile Location="Images\offer.png" />
+    <ElementFile Location="Images\next.png" />
+    <ElementFile Location="Images\logo.svg" />
+    <ElementFile Location="Images\logo.png" />
+    <ElementFile Location="Images\leavebox.png" />
+    <ElementFile Location="Images\last.png" />
+    <ElementFile Location="Images\hr.png" />
+    <ElementFile Location="Images\hr Copy.png" />
+    <ElementFile Location="Images\first.png" />
+    <ElementFile Location="Images\finance.png" />
+    <ElementFile Location="Images\feedback.png" />
+    <ElementFile Location="Images\employee.png" />
+    <ElementFile Location="Images\edit.jpg" />
+    <ElementFile Location="Images\delete.jpg" />
+    <ElementFile Location="Images\assetmanagemtn.png" />
+    <ElementFile Location="Images\appointment.png" />
+    <ElementManifest Location="Javascripts\Elements.xml" />
+    <ElementFile Location="Javascripts\moment.min.js" />
+    <ElementFile Location="Javascripts\main.js" />
+    <ElementFile Location="Javascripts\jquery-ui.js" />
+    <ElementFile Location="Javascripts\jquery-1.12.4.js" />
+    <ElementFile Location="Javascripts\common.js" />
+    <ElementFile Location="Javascripts\bootstrap.min.js" />
+    <ElementFile Location="Javascripts\bootstrap-datetimepicker-2.3.10.js" />
+    <ElementFile Location="Javascripts\bootstrap-datepicker.min.js" />
+    <ElementManifest Location="MasterPages\Elements.xml" />
+    <ElementFile Location="MasterPages\RecruitmentPortalMaster.html" />
+    <ElementManifest Location="Fonts\Elements.xml" />
+    <ElementFile Location="Fonts\glyphicons-halflings-regular.woff2" />
+    <ElementFile Location="Fonts\glyphicons-halflings-regular.woff" />
+    <ElementFile Location="Fonts\glyphicons-halflings-regular.ttf" />
+    <ElementFile Location="Fonts\glyphicons-halflings-regular.svg" />
+    <ElementFile Location="Fonts\glyphicons-halflings-regular.eot" />
+  </ElementManifests>
+</Feature>
